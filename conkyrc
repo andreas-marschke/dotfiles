@@ -1,0 +1,68 @@
+#avoid flicker
+double_buffer yes
+#own window to run simultanious 2 or more conkys
+own_window no
+own_window_transparent yes
+own_window_type normal
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager
+#borders
+draw_borders no
+#shades
+draw_shades no
+#position
+gap_x 6
+gap_y 6
+alignment top_left
+#behaviour
+update_interval 2
+#colour
+default_color  8f8f8f
+
+default_shade_color 000000
+own_window_colour 262626
+
+#font
+use_xft yes
+xftfont terminus:pixelsize=8
+
+#to prevent window from moving
+use_spacer true
+minimum_size 200
+#  ${exec perl -Mutf8 -e 'binmode(STDOUT, ":utf8"); print "\x{2193}"'}
+#  ${exec perl -Mutf8 -e 'binmode(STDOUT, ":utf8"); print "\x{2191}"'}
+
+TEXT
+${color}CPU:${color e0e0e0}0:${color}${freq_g 0} ${color e0e0e0}1:${color}${freq_g 1}
+    ${color e0e0e0}2:${color}${freq_g 2} ${color e0e0e0}3:${color}${freq_g 3}
+${color}MEM: ${color e0e0e0}${font}${mem} ${color} 
+${color}Buffers: ${color e0e0e0}${buffers}
+${color}Cached:  ${color e0e0e0}${cached}
+
+${color}Uptime: ${color e0e0e0}${font}${uptime_short}${color}
+${color}Load: ${color e0e0e0}${loadavg 1} ${loadavg 2} ${loadavg 3}
+
+
+eth0: ${color a0a0a0}Dw: ${color e0e0e0}${font}${downspeed eth0}/s ${color} Total: ${color e0e0e0} ${totaldown eth0}
+eth0: ${color a0a0a0}Up: ${color e0e0e0}${font}${upspeed  eth0}/s ${color} Total: ${color e0e0e0} ${totalup eth0}
+
+wlan0:${color a0a0a0}Dw: ${color e0e0e0}${font}${downspeed wlan0}/s ${color} Total: ${color e0e0e0} ${totaldown wlan0}
+wlan0:${color a0a0a0}Up: ${color e0e0e0}${font}${upspeed  wlan0}/s ${color} Total: ${color e0e0e0} ${totalup wlan0}
+
+${color}Default Route: ${color e0e0e0}${gw_iface}:${gw_ip}
+${color}IP:${color e0e0e0} eth0 ${color} ${addr eth0}
+    ${color e0e0e0}wlan0 ${color}${addr wlan0}
+
+${color}Temp: ${color e0e0e0}${acpitemp}
+${color}Fan:${color e0e0e0} ${ibm_fan} rpms
+${color}BatTime: ${color e0e0e0}${battery_time BAT0}
+${color}Bat: ${color e0e0e0}${battery_bar 10,150 BAT0}
+
+${color}Root: ${color e0e0e0}${font}${fs_free /} ${color}Home: ${color e0e0e0}${font}${fs_free /home} ${color}
+${color}Disk I/O:  ${color e0e0e0} ${diskio sda}
+${color}Disk Read: ${color e0e0e0} ${diskio_read sda}
+${color}Disk Write:${color e0e0e0} ${diskio_write sda}
+
+Music On Console Player:
+${color}Artist: ${color e0e0e0}${moc_artist}
+${color}Album:  ${color e0e0e0}${moc_album}
+${color}Song:   ${color e0e0e0}${moc_song}

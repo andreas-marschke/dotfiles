@@ -1,0 +1,19 @@
+include ~/.lirc/vlc
+include ~/.lirc/moovida
+include ~/.lirc/xbmc
+
+begin
+  prog = irxevent
+  button = Guide
+  mode = xbmc
+end
+begin
+  prog = irxevent
+  button = Videos
+  mode = vlc
+end
+begin
+  prog = irxevent
+  button = TV
+  mode = moovida
+end

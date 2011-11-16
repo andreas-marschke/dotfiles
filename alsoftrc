@@ -1,0 +1,2 @@
+# a config file used to make sound work in Gluon back in the day
+drivers=alsa

@@ -1,0 +1,277 @@
+
+# ==============================================================================
+# SCREEN SETTINGS
+# ==============================================================================
+
+# ESCAPE - the COMMAND CHARACTER
+# ===============================================================
+escape ^aa  # default
+# escape ^pp  # suggested binding for emacs users
+
+
+# PASSWORD
+# ===============================================================
+# This commands sets the *internal* password for the screen session.
+# WARNING!! If this is set then a "lock" command will only let you in to the
+# session after you enter the user's account password and then *also*
+# the internal password for that session. This gives additional safety but,
+# if you forget the internal password then you cannot resume your session.
+# Use :password to generate a password
+# password ODSJQf.4IJN7E    # "1234"
+
+
+# VARIABLES
+# ===============================================================
+# No annoying audible bell, using "visual bell"
+vbell on                                # default: off
+vbell_msg "   -- Bell,Bell!! --   "     # default: "Wuff,Wuff!!"
+#  bell  "%C -> %n%f %t bell!~"
+
+# activity              'Activity in window %n' # default
+#
+
+
+# There are two kinds of messages:  "activity" and "bell"
+# They are also the names of the commands that set the
+# respective messages.  In every message there can be "meta
+# strings" which are replaced by values.  A meta string starts
+# with a percent sign and is then followed by one
+# of the following letters: aAcCdDfFhHlmMnstuwWyY
+# The meta strings usually refer to the current
+# date and time or to a window title or number.
+# There are also some specials like embedded branches (with %?),
+# color codes (with %{xy}) and padding (with %=, %<, %>).
+# you can find their description in the manual in section
+# "STRING ESCAPES":
+#  %%      percent sign (the escape character itself)
+#  %a      either 'am' or 'pm' - according to the current time
+#  %A      either 'AM' or 'PM' - according to the current time
+#  %c      current time HH:MM in 24h format
+#  %C      current time HH:MM in 12h format
+#  %d      day number - number of current day
+#  %D      Day's name - the weekday name of the current day
+#  %f      flags of the window
+#  %F      sets %? to true if the window has the focus
+#  %h      hardstatus of the window
+#  %H      hostname of the system
+#  %l      current load of the system
+#  %m      month number
+#  %M      month name
+#  %n      window number
+#  %s      seconds
+#  %t      window title
+#  %u      all other users on this window
+#  %w      all window numbers and names.
+#  %-w     all window numbers up to the current window
+#  %+w     all window numbers after the current window
+#  %W      all window numbers and names except the current one
+#  %y      last two digits of the year number
+#  %Y      full year number
+#
+# Older versions of screen used a single '%' character
+# to display window titles - but since version 3.7 this is
+# obsoleted by '%n' and it will vanish in future releases.
+# So please update your screenrc to meet this convention!
+
+
+# Automatically detach on hangup.
+autodetach on                         # default: on
+
+# Don't display the copyright page
+startup_message off                   # default: on
+
+# Uses nethack-style messages
+nethack off                            # default: off
+
+# Affects the copying of text regions
+crlf off                              # default: off
+
+# Enable/disable multiuser mode. Standard screen operation is singleuser.
+# In multiuser mode the commands acladd, aclchg, aclgrp and acldel can be used
+# to enable (and disable) other user accessing this screen session.
+# Requires suid-root.
+multiuser off
+
+# Change default scrollback value for new windows
+defscrollback 10000                # default: 100
+
+# Define the time that all windows monitored for silence should
+# wait before displaying a message. Default 30 seconds.
+silencewait 15                        # default: 30
+
+# bufferfile:   The file to use for commands
+#               "readbuf" ('<') and  "writebuf" ('>'):
+bufferfile            $HOME/.screen_exchange
+#
+# hardcopydir:  The directory which contains all hardcopies.
+hardcopydir           ~/.hardcopy
+hardcopydir           ~/.screen
+#
+# shell:  Default process started in screen's windows.
+# Makes it possible to use a different shell inside screen
+# than is set as the default login shell.
+# If begins with a '-' character, the shell will be started as a login shell.
+
+shell  bash
+# shell                 bash
+# shell                 ksh
+# shell -$SHELL
+
+# shellaka '> |tcsh'
+shelltitle '$ |bash'
+
+# emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+# caption always " %w --- %c:%s"
+caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
+
+# advertise hardstatus support to $TERMCAP
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+
+# set every new windows hardstatus line to something descriptive
+defhstatus "screen: ^En (^Et)"
+
+# don't kill window after the process died
+# zombie "^["
+# zombie z
+
+
+# XTERM TWEAKS
+# ===============================================================
+
+# xterm understands both im/ic and doesn't have a status line.
+# Note: Do not specify im and ic in the real termcap/info file as
+# some programs (e.g. vi) will not work anymore.
+
+termcap  xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+
+# 80/132 column switching must be enabled for ^AW to work
+# change init sequence to not switch width
+termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+
+# Make the outputns also need this
+# termcapinfo rxvt C8
+
+# STATUS
+# ==============================================================
+# hardstatus alwayslastline "%{kG}%?%- %u %60=%{rk} %H %68=%{yk} %d.%m.%Y %88=%{gk} %c %= %?%+Lw%?"
+# backtick 1 1 6   /usr/bin/mocp --format "%song"
+# backtick 2 1 6   /usr/bin/mocp --format "%album" 
+# backtick 3 1 6   /usr/bin/mocp --format "%artist"
+# backtick 4 1 1   /usr/bin/mocp --format "%tl"
+# backtick 5 2 2   /home/andreas/bin/total-space 
+# backtick 6 30 30 /bin/cat /etc/debian_version
+# backtick 7 30 30 /bin/uname -sr
+# backtick 8 1 1   /home/andreas/bin/ip_r
+
+hardstatus alwayslastline "%{fB}[%{fB}%4`] %{fY}%3`%{fB} - %{fg}%1` %{fg}(%2`) %{fb}load: %l %{fY} %d.%m.%Y %{fb} ( %{fG}%c %{fb})%="
+# hardstatus alwayslastline "%{kb}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{ky}%?%+Lw%?"
+# hardstatus alwayslastline "%{bw}%1`%=   %50=%{rk} %H %73=%{yk} %d.%m.%Y %88=%{gk} %c %="
+# hardstatus alwayslastline "%20=%{bw} %1` %50=%{rw} %H %73=%{yk} %d.%m.%Y %88=%{gk} %c %="
+
+# CAPTION
+# ==============================================================
+# a "caption" is another line which can show information -
+# in addition to the hardstatus line.
+# caption always "%{kG}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{kG}%?%+Lw%?" # prev defauld
+caption always "%{Bk} %?%-Lw%? %{yk} %n*%f %t%?(%u)%? %{Bk} %?%+Lw%?"
+# backtick id lifespan autorefresh command [args]
+# backtick 1 10 1 /usr/local/bin/battstat
+
+# "sorendition": set the colors for
+# the "messages" and "text marking"
+# (ie text you mark in copy mode):
+#
+sorendition bG # default!
+# sorendition 02 40 # green  on black
+# sorendition 02 34 # yellow on blue
+# sorendition    rw # red    on white
+# sorendition    fG # black  on bold green
+
+# KEYBINDINGS
+# ==============================================================
+# The "bind" command assign keys to (internal) commands
+# SCREEN checks all the keys you type; you type the key
+# which is known as the "command character" then SCREEN
+# eats this key, too, and checks whether this key is
+# "bound" to a command.  If so then SCREEN will execute it.
+#
+# The command "bind" allows you to chose which keys
+# will be assigned to the commands.
+#
+# Some commands are bound to several keys -
+# usually to both some letter and its corresponding
+# control key combination, eg the command
+# "(create) screen" is bound to both 'c' and '^C'.
+#
+# The following list shows the default bindings:
+#
+# break       ^B b
+# clear       C
+# colon       :
+# copy        ^[ [
+# detach      ^D d
+# digraph     ^V
+# displays    *
+# dumptermcap .
+# fit         F
+# flow        ^F f
+# focus       ^I
+# hardcopy    h
+# help        ?
+# history     { }
+# info        i
+# kill        K k
+# lastmsg     ^M m
+# license     ,
+# log         H
+# login       L
+# meta        x
+# monitor     M
+# next        ^@ ^N sp n
+# number      N
+# onndkey -k k8 next
+# F11 and F12
+  bindkey -k F1 prev
+  bindkey -k F2 next
+
+# STARTUP SCREENS
+# ===============================================================
+# Defines the time screen delays a new message when one message
+# is currently displayed. The default is 1 second.
+#  msgminwait 2
+
+# Time a message is displayed if screen is not disturbed by
+# other activity. The dafault is 5 seconds:
+#  msgwait 2
+
+# Briefly show the version number of this starting
+# screen session - but only for *one* second:
+# msgwait 1
+# version
+
+defbce on
+term screen-bce
+
+# Welcome the user:
+#echo "welcome :-)"
+#echo "I love you today."
+msgwait 10
+# Uncomment one/some following lines to automatically let
+# SCREEN start some programs in the given window numbers:
+screen -t EMACS       0 emacs -nw -f server-start -D --debug-init
+screen -t MOCP        1 mocp
+screen -t IRSSI	      2 ssh xxtjaxx@ein-elch.de 
+
+# screen -t TORRENT     5 rtorrent
+# Set the environment variable var to value string. If only var is specified,
+# you'll be prompted to enter a value. If no parameters are specified,
+# you'll be prompted for both variable and value. The environment is
+# inherited by all subsequently forked shells.
+# setenv PROMPT_COMMAND 'echo -n -e "\033k\033\134"'
+
+# Don't you want to start programs which need a DISPLAY ?
+setenv DISPLAY ':0'
+# /usr/bin/battstat for displaying battery-sta

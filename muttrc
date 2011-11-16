@@ -1,0 +1,41 @@
+set from = "xxtjaxx@gmail.com"
+set realname = "Andreas Marschke"
+set smtp_url = "smtp://xxtjaxx@smtp.gmail.com:587/"
+set folder = imaps://xxtjaxx@imap.googlemail.com
+set postponed = "=[Google Mail]/Drafts"
+set spoolfile = "+INBOX"
+set sendmail = "esmtp -v -X ~/tmp/esmtp.log"
+alias Mailer-Daemonme=xxtjaxx_gmail.comourpass Mailer-Daemon@andres.andreasstarttls=enabled
+unset imap_passive
+
+# Header stuff
+# ignore "Authentication-Results:"
+# ignore "DomainKey-Signature:"
+# ignore "DKIM-Signature:"
+hdr_order From To Cc
+ignore *
+unignore from: date subject to cc
+unignore x-mailing-list: 
+unignore posted-to:
+unignore x-mailer:
+unignore X-Label:
+
+set sidebar_width=30
+set sidebar_visible=yes
+set sidebar_delim='|'
+
+set markers=no # don't put '+' at the beginning of wrapped lines
+set pager_index_lines=16 # how large is the index window?
+set sort = 'threads'
+set sort_aux = 'last-date-received'
+set imap_delim_chars="/"
+set imap_keepalive=2
+set imap_check_subscribed
+set mail_check=60
+set record="~/Mail/sent"
+set header_cache=~/.hcache
+set message_cachedir = "~/Mail"
+set editor="emacsclient -nw"
+set signature="~/.signature.priv"
+#color theme
+source ~/.colors.angdraug

@@ -1,0 +1,170 @@
+#! /bin/bash
+
+# enable color support of ls and also add handy aliases
+if [ -e /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto -CF'
+    alias l='ls -lh' # make it colored _but_ >long< and human readable
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# PROMPT STUFF #
+# - this is a hack to not crum everything in one
+#   line as well as keeping the quotas clear
+
+alias mutt="mutt -F ~/.muttrc"
+alias mutts="mutt -F ~/src/stuff/muttrc_serious"
+
+## for git
+alias git_current_branch='git branch | grep "*" | sed s/*\ //'
+alias git_branch='if [ -d .git/  ];then echo "$(git_current_branch) ";fi'
+
+## for svn
+alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
+
+## display current load
+alias cur_load='uptime | grep -o "load\ average:\ [0-9]*.[0-9]*,\ [0-9]*.[0-9]*,\ [0-9]*.[0-9]*" | cut -d: -f2 | cut -d, -f2 | sed s/\ //g'
+
+# general development
+alias screen='tmux'
+alias emacs="emacs23 -nw -f server-start"
+alias m='make'
+alias buildpkg='dpkg-buildpackage -rfakeroot -S -D -tc -sa -sd -sgpg'
+alias dpkg-build='dpkg-buildpackage -rfakeroot'
+
+# misc
+alias s='source ~/.bashrc'
+alias getproc='ps awxf -o pid,ni,pcpu,%mem,wchan,cmd | grep -v "grep" | grep -i '
+alias aptitude='sudo aptitude'
+alias procmount_arm='sudo mount -o bind proc ./proc/'
+alias diff='diff -Naur'
+alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
+function moovida()
+{
+    for i in $( ps ax | grep irxevent | cut -d" " -f1 );
+    do
+	kill $i
+    done
+    irxevent --daemon
+    /usr/bin/moovida $@
+}
+
+
+function rmtmp()
+{
+    find -name '*~' -delete
+    find -name '*.elc' -delete
+    # Remove build dirs only when we are in a cmake project
+    if [ -d build/ ];then
+	rm -rf build/
+    fi
+    # When working with pdflatex
+    find -name '*.out' -delete
+    find -name '*.toc' -delete
+    find -name '*.log' -delete
+    find -name '*.aux' -delete
+}
+
+function cbuild()
+{
+    rmtmp
+    mkdir build && cd build && \
+	cmake -DCMAKE_BUILD_TYPE=Debugfull -DCMAKE_INSTALL_PREFIX=/usr .. && \
+	make -j3 && cd ..
+}
+
+function elisp_update_git()
+{
+    cur_dir=$(pwd)
+    root_dir=$HOME/.elisp
+    cd $root_dir
+    for i in $(find -maxdepth 2 -regex '\(.*/\.git\|.*/\.svn.*\)')
+    do # only search next dir below $root_dir
+	echo -e '\033[01;33m'$i'\033[00;00m'  #bits of color
+	subdir=$root_dir/$(echo $i | sed 's:\(\./\|\.git\|/\.svn\)::g')
+	if [ -d $subdir/.svn ]
+	then
+	    cd $subdir && svn up 1>/dev/null
+	elif [ -d $subdir/.git ]
+	then
+	    cd $subdir && git pull 1>/dev/null
+	fi
+    done
+    cd $cur_dir
+}
+
+
+function lintian-check()
+{
+    for i in $(ls -1 *.deb)
+    do
+	echo -e "\033[00;32m * $i \033[00;00m"
+	lintian --check --pedantic -I --color always -o $i
+    done
+}
+
+# TODO: is there more todo here otherwise?
+function less()
+{
+    if [ "x$@" = "x"  ]; then
+	/bin/less
+    else
+	if [ ! "x$(echo $@ | grep .pdf)" = "x" ]; then
+	    pdftotext -layout $@
+	    pdf_file="$(echo "$@" | sed s:\.pdf:\.txt:)"
+	    /bin/less $pdf_file  && rm $pdf_file
+	elif [ -d $@ ]; then
+	    ls $@	
+	elif [ ! "x$(echo $@ | grep '.[Hh][Tt][Mm][Ll]')" = "x" ]; then
+	    w3m $@
+	elif [ ! "x$(echo $@ | grep .ps)" = "x" ]; then
+	    ps2txt -layout $@ | /bin/less
+	    # ps_file="$(echo "$@" | sed s:\.ps:\.txt:)"
+	    # $ps_file  && rm $ps_file
+	elif [ ! "x$(echo $@ | grep '\(.c\|.cpp\|.h\|hpp\|.pl\|.sh\)')" = "x" ]; then
+	    vim $@ -R -c 'syntax on'
+	elif [ ! "x$(echo $@ | grep '\(.tar.\(gz\|bz2\)\|.zip\|.tgz\)' )" = "x" ]; then
+	    lesspipe $@ | /bin/less
+	elif [ "$(file --mime-type $@  | cut -d: -f2 | cut -d/ -f1 | sed s/\ //g)" = "image" ];then
+	    feh $@
+	else
+	    vim $@ -R -c 'syntax on'
+	fi
+    fi
+}
+
+seq_al() {
+     echo  | awk '{ for(i=97;i<123;i++) { printf "%c\n",i }}'
+}
+
+# Makes a screen grab from your current screen
+make_video() {
+    ffmpeg -f x11grab -r 25 -s $(xrandr  -q  | grep '\*\+' | grep -o '[0-9]*x[0-9]*') -i :0.0 $@
+}
+
+
+### __COMMENTS__
+
+## _OLD_UNUSED_BUT_INTERESTING_SNIPPETS_
+
+# DEPRECATED elisp update script
+#-------------------------------
+# NOTE: kept for reference
+# function elisp_update_git()
+# {
+#     cur_dir=$(pwd)
+#     root_dir=$HOME/.elisp
+#     cd $root_dir
+#     for i in $(find -name .git)
+#     do
+# 	echo -e '\033[01;33m'$i'\033[00;00m'
+# 	git_repo=$root_dir/$(echo $i | sed s/.git// | sed s:./::)
+# 	cd $git_repo && echo $git_repo && git pull || echo "ERROR $!"
+#     done
+#     cd $cur_dir
+# }
+#-------------------------------
