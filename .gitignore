@@ -1,17 +1,44 @@
-B0;115;0c# git-ls-files --others --exclude-from=.git/info/exclude
+# git-ls-files --others --exclude-from=.git/info/exclude
 # Lines that start with '#' are comments.
 # For a project mostly in C, the following would be a good set of
 # exclude patterns (uncomment them if you want to use them):
 *.[oa]
-*~
-*build/
-*.mp3 
-*.ogg 
-*Makefile
-*.pro.user
-*.kdev*
-*.pidb
-*.userprefs
-*bin/
-*.exe
+*.aspell.org.conf
+*.cp
+*.db
 *.elc
+*.eproject
+*.exe
+*.fn
+*.git/
+*.gitattributes
+*.gitignore
+*.kdev*
+*.ky
+*.m3u
+*.mp3 
+*.nosearch
+*.ogg 
+*.pdf
+*.pg
+*.pidb
+*.pro.user
+*.svn/
+*.tar.gz
+*.tp
+*.userprefs
+*.vr
+*Makefile
+*bin/
+*build/
+*cache/
+*id_rsa
+*id_rsa_github
+*known_hosts
+*last_directory
+*pid
+*rc/
+*socket2
+*~
+\#*
+*ssh/authorized_keys
