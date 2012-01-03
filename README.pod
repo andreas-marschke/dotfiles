@@ -1,17 +1,14 @@
-=head1 My Dotfiles
+=head3 Features Of this repository
 
-This is my personal backup for all the scripts and
-enhancements I gatherd for comfort.
-
-=head2 Features Of this repository
-
-You can find various files I collected of the years and Months and have been 
+You can find various files I collected over the years and Months and have been 
 stockpiling around my Desktops/Laptops etc. .
 
-=head2 Initializing it for a clean machine
+=head3 Initializing it for a clean machine
 
 B<NOTE:>This is considered harmful and should only be done if you B<know> what you are doing!
+
 Usually when I setup a new box I don't really care about the old config. I just remove it.
+
  for i in $(ls /path/to/dotfiles/)
  do 
      if [ -x ~/.$i ]
