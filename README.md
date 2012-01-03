@@ -14,3 +14,7 @@ Branches of this repository include:
 * duke
   my work machine
 
+= Initializing it for a clean machine = 
+Usually when I setup a new box I don't really care about the old config. I just remove it.
+ for i in $(ls /path/to/dotfiles/); do if [ -x ~/.$i ]; then rm .$i; fi; ln -s /path/to/dotfiles/$i ~/.$i; done
+
