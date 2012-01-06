@@ -21,4 +21,6 @@ Host *.xtxhb.ath.cx
 Host github.com
      User git
      IdentityFile ~/.ssh/id_rsa_github
-     
+Host *.via.de
+     User root
+     IdentityFile ~/.ssh/id_rsa 
