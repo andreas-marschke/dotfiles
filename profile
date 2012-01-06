@@ -16,7 +16,7 @@ test -z "$PROFILEREAD" && . /etc/profile || true
 export LANG=de_DE.UTF-8		# uncomment this line for German output
 #export LANG=fr_FR.UTF-8	# uncomment this line for French output
 #export LANG=es_ES.UTF-8	# uncomment this line for Spanish output
-export EDITOR=/usr/bin/emacs
+export EDITOR=/usr/bin/vi
 # Some people don't like fortune. If you uncomment the following lines,
 # you will have a fortune each time you log in ;-)
 
@@ -24,4 +24,8 @@ if [ -x /usr/bin/fortune ] ; then
     echo
     /usr/bin/fortune
     echo
+fi
+
+if [ -x ~/.bashrc ] ; then
+   . .bashrc
 fi
