@@ -4,7 +4,7 @@ B<NOTE:>This is considered harmful and should only be done if you B<know> what y
 
 Usually when I setup a new box I don't really care about the old config. I just remove it.
 
- for i in $(ls /path/to/dotfiles/)
+ for i in $(ls /path/to/dotfiles/ | grep -v '^doc$' )
  do 
      if [ -x ~/.$i ]
      then
