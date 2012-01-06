@@ -1,8 +1,3 @@
-=head3 Features Of this repository
-
-You can find various files I collected over the years and Months and have been 
-stockpiling around my Desktops/Laptops etc. .
-
 =head3 Initializing it for a clean machine
 
 B<NOTE:>This is considered harmful and should only be done if you B<know> what you are doing!
