@@ -3,7 +3,7 @@
 # enable color support of ls and also add handy aliases
 if [ -e /usr/bin/dircolors ]; then
     eval "`dircolors -b`"
-    alias ls='ls --color=auto -CF'
+    alias ls='ls --color=auto'
     alias l='ls -lh' # make it colored _but_ >long< and human readable
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -20,8 +20,7 @@ alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/src/stuff/muttrc_serious"
 
 ## for git
-alias git_current_branch='git branch | grep "*" | sed s/*\ //'
-alias git_branch='if [ -d .git/  ];then echo "$(git_current_branch) ";fi'
+alias git_branch='git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | cut -d" " -f2-)" "'
 
 ## for svn
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
@@ -43,6 +42,8 @@ alias aptitude='sudo aptitude'
 alias procmount_arm='sudo mount -o bind proc ./proc/'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
+alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
+
 function moovida()
 {
     for i in $( ps ax | grep irxevent | cut -d" " -f1 );
