@@ -43,3 +43,4 @@
 \#*
 *ssh/authorized_keys
 *.netrwhist
+*elisp/rc*
