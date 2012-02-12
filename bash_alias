@@ -22,7 +22,7 @@ alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/src/stuff/muttrc_serious"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 ## for git
-alias git_branch='git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | cut -d" " -f2-)" "'
+alias git_branch='git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | grep '^\*' | cut -d" " -f2-)" "'
 
 ## for svn
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
