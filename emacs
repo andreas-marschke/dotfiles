@@ -16,6 +16,8 @@
 (add-to-list 'load-path "~/dev/general/org-mode/lisp")
 (add-to-list 'load-path "~/dev/general/org-mode/contrib/lisp")
 
+(require 'keydef)
+
 (load "~/.elisp/rc/emacs-rc-auto-insert.el")
 (load "~/.elisp/rc/emacs-rc-autocomplete.el")
 (load "~/.elisp/rc/emacs-rc-ccmode.el")
@@ -32,7 +34,7 @@
 (load "~/.elisp/rc/emacs-rc-ispell.el")
 (load "~/.elisp/rc/emacs-rc-iswitchb.el")
 (load "~/.elisp/rc/emacs-rc-javascript.el")
-;(load "~/.elisp/rc/emacs-rc-keydefs.el")
+(load "~/.elisp/rc/emacs-rc-keydefs.el")
 (load "~/.elisp/rc/emacs-rc-lisp.el")
 (load "~/.elisp/rc/emacs-rc-mail.el")
 (load "~/.elisp/rc/emacs-rc-misc-things.el")
