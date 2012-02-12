@@ -1,0 +1,45 @@
+
+[src/web/960.GS/]
+update = git pull origin master
+
+[src/web/chosen/]
+update = git pull origin master
+
+[src/web/g.raphael/]
+update = git pull origin master
+
+[src/web/html5-boilerplate/]
+update = git pull origin master
+
+[src/web/JSON-js/]
+update = git pull origin master
+
+[src/web/less.js/]
+update = git pull origin master
+
+[src/web/Modernizr/]
+update = git pull origin master
+
+[src/web/popcorn-js/]
+update = git pull origin master
+
+[src/web/rickshaw/]
+update = git pull origin master
+
+[src/web/simpleSlider/]
+update = git pull origin master
+
+[share/doc/learn/learn-python-the-hard-way/] 
+update = git pull origin master
+
+[share/doc/learn/learn-regex-the-hard-way/] 
+update = git pull origin master
+
+[share/doc/learn/learnrubythehardway/] 
+update = git pull origin master
+
+[share/doc/learn/learn-sql-the-hard-way/] 
+update = git pull origin master
+
+[share/doc/learn/learn-x-the-hard-way/] 
+update = git pull origin master
