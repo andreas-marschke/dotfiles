@@ -65,7 +65,7 @@ if [ "$color_prompt" = yes ]; then
     if [ "x$PRESENTATION" = "x" ]; then
     	PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
     else
-	PS1='\u@\h: \w \[\033[01;31m\]$(svn_check)$(git_branch)\[\033[00m\] \$ '
+	PS1='\u@\h: \w \[\033[01;31m\]$(svn_check)$(git_branch)\[\033[00m\]\$ '
     fi
 
 else
@@ -79,9 +79,3 @@ fi
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[0;31m\]\H\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[1;33m\]\$>\[\033[00m\] '
 #PS1='${debian_chroot:+($debian_chroot)}\$PS2\u@\h:\w\$ '
 #################### various prompts ########################
-
-export PERL_LOCAL_LIB_ROOT="/home/andreas/perl5";
-export PERL_MB_OPT="--install_base /home/andreas/perl5";
-export PERL_MM_OPT="INSTALL_BASE=/home/andreas/perl5";
-export PERL5LIB="lib:/home/andreas/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/andreas/perl5/lib/perl5:$PERL5LIB";
-export PATH="/home/andreas/perl5/bin:$PATH";
