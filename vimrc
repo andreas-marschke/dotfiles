@@ -1,22 +1,3 @@
-" All system-wide defaults are set in $VIMRUNTIME/debian.vim (usually just
-" /usr/share/vim/vimcurrent/debian.vim) and sourced by the call to :runtime
-" you can find below.  If you wish to change any of those settings, you should
-" do it in this file (/etc/vim/vimrc), since debian.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
-" make changes after sourcing debian.vim since it alters the value of the
-" 'compatible' option.
-
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-"runtime! debian.vim
-
-" Uncomment the next line to make Vim more Vi-compatible
-" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes numerous
-" options, so any other options should be set AFTER setting 'compatible'.
-"set compatible
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
 syntax on
 
 " If using a dark background within the editing area and syntax highlighting
@@ -35,19 +16,40 @@ if has("autocmd")
   filetype plugin indent on
 endif
 
+""" enable automated html,xml,xsl closetag script
+if has("autocmd")
+  au Filetype html,xml,xsl source ~/.vim/closetag.vim
+  au FileType html         set noignorecase " as advised by closetag.vim
+endif
+
+""" make smaller indentation for html
+if has("autocmd")
+  au FileType html set sw=2
+  au FileType html set ts=2
+endif
+
+""" CSS Has mostly the depth of one therefore keep it at 4 spaces per tab
+""" This way I can still see which tag/id/class something is part of but still
+""" distinguish the two
+if has("autocmd")
+  au FileType css  set sw=8
+  au FileType css  set ts=8
+endif
+
+if has("autocmd")
+  au FileType vim  set sw=2
+  au FileType vim  set ts=2
+endif
+	
+if has("autocmd")
+  au FileType haml  set sw=2
+  au FileType haml  set ts=2
+endif
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
+set showcmd	  	" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set incsearch		" Incremental search
 set autowrite		" Automatically save before commands like :next and :make
-"set hidden             " Hide buffers when they are abandoned
-"set mouse=0		" Enable mouse usage (all modes)
-
-" Source a global configuration file if available
-if filereadable("/etc/vim/vimrc.local")
-  source /etc/vim/vimrc.local
-endif
-
+set noexpandtab 	" i want tabs instead of spaces
