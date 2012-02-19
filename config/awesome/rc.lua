@@ -34,8 +34,10 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-
+beautiful.init("/home/andreas/.config/awesome/theme/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
@@ -51,8 +53,18 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
+--    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.max.fullscreen,
+--    awful.layout.suit.tile.left,
+--    awful.layout.suit.tile.bottom,
+--    awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
+    awful.layout.suit.fair.horizontal,
+--    awful.layout.suit.spiral,
+--    awful.layout.suit.spiral.dwindle,
+    awful.layout.suit.max,
+    awful.layout.suit.max.fullscreen
+--    awful.layout.suit.magnifier
 }
 -- }}}
 
@@ -61,27 +73,8 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    tags[s] = awful.tag({ 1, 2, 3, 4, 5 }, s, layouts[1])
 end
--- }}}
-
--- {{{ Menu
--- Create a laucher widget and a main menu
-myawesomemenu = {
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", awesome.quit }
-}
-
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
-                                    { "open terminal", terminal }
-                                  }
-                        })
-
-mylauncher = awful.widget.launcher({ image = image(beautiful.awesome_icon),
-                                     menu = mymainmenu })
 -- }}}
 
 -- {{{ Wibox
@@ -119,7 +112,7 @@ mytasklist.buttons = awful.util.table.join(
                                                   c:raise()
                                               end
                                           end),
-                     awful.button({ }, 3, function ()
+                     awful.button({ }, 2, function ()
                                               if instance then
                                                   instance:hide()
                                                   instance = nil
@@ -127,11 +120,11 @@ mytasklist.buttons = awful.util.table.join(
                                                   instance = awful.menu.clients({ width=250 })
                                               end
                                           end),
-                     awful.button({ }, 4, function ()
+                     awful.button({ }, 3, function ()
                                               awful.client.focus.byidx(1)
                                               if client.focus then client.focus:raise() end
                                           end),
-                     awful.button({ }, 5, function ()
+                     awful.button({ }, 4, function ()
                                               awful.client.focus.byidx(-1)
                                               if client.focus then client.focus:raise() end
                                           end))
@@ -160,25 +153,24 @@ for s = 1, screen.count() do
     -- Add widgets to the wibox - order matters
     mywibox[s].widgets = {
         {
-            mylauncher,
             mytaglist[s],
             mypromptbox[s],
             layout = awful.widget.layout.horizontal.leftright
         },
+	
+        mytasklist[s],
         mylayoutbox[s],
         mytextclock,
         s == 1 and mysystray or nil,
-        mytasklist[s],
-        layout = awful.widget.layout.horizontal.rightleft
+        layout = awful.widget.layout.horizontal.leftright
     }
 end
 -- }}}
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, awful.tag.viewnext),
+    awful.button({ }, 4, awful.tag.viewprev)
 ))
 -- }}}
 
@@ -198,7 +190,7 @@ globalkeys = awful.util.table.join(
             awful.client.focus.byidx(-1)
             if client.focus then client.focus:raise() end
         end),
-    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
+---    awful.key({ modkey,           }, "w", function () mymainmenu:show({keygrabber=true}) end),
 
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
@@ -231,7 +223,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
+    awful.key({ modkey },            "p",     function () mypromptbox[mouse.screen]:run() end),
 
     awful.key({ modkey }, "x",
               function ()
@@ -361,11 +353,5 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
--- }}}
--- {{{ Spaw processes
-awful.util.spawn_with_shell("wicd-gtk --tray")
-awful.util.spawn_with_shell("xfce4-power-manager")
-awful.util.spawn_with_shell("kwalletmanager")
-awful.util.spawn_with_shell("kopete")
 -- }}}
 
