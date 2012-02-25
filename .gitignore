@@ -38,6 +38,7 @@
 *pid
 *rc/
 *socket2
+moc/softmixer
 *~
 \#*
 *ssh/authorized_keys
