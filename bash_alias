@@ -19,7 +19,7 @@ alias rm="rm -i"
 #   line as well as keeping the quotas clear
 
 alias mutt="mutt -F ~/.muttrc"
-alias mutts="mutt -F ~/src/stuff/muttrc_serious"
+alias mutts="mutt -F ~/.muttrcs"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 ## for git
 alias git_branch='git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | grep '^\*' | cut -d" " -f2-)" "'
@@ -45,6 +45,11 @@ alias procmount_arm='sudo mount -o bind proc ./proc/'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
 alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
+
+function js_script()
+{
+	for i in $(ls);do echo '<script src="js/libs/'$i'"></script>';done
+}
 
 function presentation() {
 	export PRESENTATION=1
