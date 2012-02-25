@@ -31,7 +31,7 @@ set mail_check=60
 set record="~/Mail/sent"
 set header_cache=~/.hcache
 set message_cachedir = "~/Mail"
-set editor="emacsclient -nw"
+set editor="vim"
 set signature="~/.signature.priv"
 #color theme
 source ~/.colors.angdraug

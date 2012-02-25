@@ -20,10 +20,6 @@ unignore posted-to:
 unignore x-mailer:
 unignore X-Label:
 
-set sidebar_width=30
-set sidebar_visible=yes
-set sidebar_delim='|'
-
 set markers=no # don't put '+' at the beginning of wrapped lines
 set pager_index_lines=16 # how large is the index window?
 set sort = 'threads'
@@ -35,7 +31,7 @@ set mail_check=60
 set record="~/Mail/sent"
 set header_cache=~/.hcache
 set message_cachedir = "~/Mail"
-set editor="emacsclient -nw"
+set editor="vim"
 set signature="~/.signature.priv"
 #color theme
 source ~/.colors.angdraug
