@@ -131,10 +131,10 @@ ShowTime		= IfAvailable
 
 # Theme file. This can be absolute path or relative to
 # /usr/share/moc/themes/ (depends on installation prefix) or ~/.moc/themes/
-Theme			= darkdot_theme
+Theme			= transparent-background
 
 # The theme used when running on an xterm.
-XTermTheme		= nightly_theme
+XTermTheme		= transparent-background
 
 # MOC directory - where pid file, socket, and state files are stored.
 # You can use ~ at the beginning.
