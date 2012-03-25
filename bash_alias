@@ -38,6 +38,7 @@ alias buildpkg='dpkg-buildpackage -rfakeroot -S -D -tc -sa -sd -sgpg'
 alias dpkg-build='dpkg-buildpackage -rfakeroot'
 
 # misc
+alias g='git'
 alias s='source ~/.bashrc'
 alias getproc='ps awxf -o pid,ni,pcpu,%mem,wchan,cmd | grep -v "grep" | grep -i '
 alias aptitude='sudo aptitude'
