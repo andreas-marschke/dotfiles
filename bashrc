@@ -49,8 +49,12 @@ if [ -f /etc/bash_completion ]; then
    . /etc/bash_completion
 fi
 
-. ~/.bash_alias
-
+# add all source alias and export scripts
+for script in "bash_alias" "bash_export" ; do 
+	if [ -f ~/.${script} ]; then
+	   . ~/.${script}
+	fi
+done 
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
