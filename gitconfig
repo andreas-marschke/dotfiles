@@ -5,3 +5,10 @@
 	whitespace=fix
 [color]
 	ui = auto
+[alias]
+	ci = commit
+	ps = push
+	pl = pull
+	l = log --pretty=format:'(%h) %s'
+	s = status
+	d = diff
