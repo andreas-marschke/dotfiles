@@ -20,12 +20,6 @@ shopt -s checkwinsize
 if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
    debian_chroot=$(cat /etc/debian_chroot)
 fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-	xterm-color) color_prompt=yes;;
-esac
-
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
@@ -56,26 +50,11 @@ for script in "bash_alias" "bash_export" ; do
 	fi
 done 
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-	xterm*|rxvt*)
-	PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-	;;
-	*)
-	;;
-esac
+PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
 
-if [ "$color_prompt" = yes ]; then
-    if [ "x$PRESENTATION" = "x" ]; then
-    	PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
-    else
+if [ ! "x$PRESENTATION" = "x" ]; then
 	PS1='\u@\h: \w \[\033[01;31m\]$(svn_check)$(git_branch)\[\033[00m\]\$ '
-    fi
-
-else
-    PS1='${debian_chroot:+($debian_chroot)}\$PS2\u@\h:\w\$ '
 fi
-
 #################### various prompts ########################
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;35m\]$(return_value)\[\033[01;33m\]$(date +%H):\[\033[01;33m\]$(date +%M):$(date +%S) \[\033[0;32m\]\d\n\[\033[01;32m\]\u@[\[\033[0;34m\]\H\[\033[01;32m\]]\[\033[01;34m\]<\w>\[\033[0;36m\]-\!-\[\033[01;31m\]$(echo "[$(cur_load)]")\[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]$(date +%H):\[\033[01;33m\]$(date +%M):$(date +%S) \[\033[0;32m\]\d\n\[\033[01;32m\]\u@[\[\033[0;34m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
