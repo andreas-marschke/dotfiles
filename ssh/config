@@ -1,3 +1,6 @@
+Host *
+     PreferredAuthentications publickey,keyboard-interactive,password
+
 Host ein-elch.de
      User xxtjaxx
      Port 22
