@@ -106,6 +106,7 @@
  '(canlock-password "647dc58dfe29df3e23118aaabef8f78aa113039e")
  '(column-number-mode t)
  '(font-lock-mode t)
+ '(ido-ubiquitous-mode t)
  '(cua-mode t nil (cua-base))
  '(develock-auto-enable nil)
  '(develock-max-column-plist nil)
@@ -126,6 +127,7 @@
  '(whitespace-silent t)
  '(kde-email "andreas.marschke@gmail.com")
  '(kde-full-name "Andreas Marschke"))
+
 (server-start)
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
