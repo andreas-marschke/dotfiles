@@ -33,10 +33,6 @@
 (load "~/.elisp/rc/emacs-rc-yasnippet.el")
 
 (custom-set-variables
-  ;; If there is more than one, they won't work right.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; custom-set-variables was added by Custom.
  '(canlock-password "647dc58dfe29df3e23118aaabef8f78aa113039e")
  '(column-number-mode t)
  '(font-lock-mode t)
@@ -69,10 +65,6 @@
   (if (boundp m)
       (funcall m -1)))
 
-(custom-set-faces
-  ;; custom-set-faces was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
-)
+
+
 
