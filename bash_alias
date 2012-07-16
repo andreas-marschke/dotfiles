@@ -22,8 +22,14 @@ alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/.muttrcs"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 ## for git
-alias git_branch='git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | grep '^\*' | cut -d" " -f2-)" "'
-
+function git_count() 
+{
+	git status -s | awk '{count[$1]++}END{for(j in count) printf j ": " count[j]" "}' 
+}
+function  git_branch()
+{
+	git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | grep '^\*' | cut -d" " -f2-) "[$(git_count | sed s:\ $::g)] "
+}
 ## for svn
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
 
@@ -128,7 +134,7 @@ function less()
 	/bin/less
     else
 	if [ ! "x$(echo $@ | grep .pdf)" = "x" ]; then
-	    pdftotext -layout $@
+	    pdftotext $@
 	    pdf_file="$(echo "$@" | sed s:\.pdf:\.txt:)"
 	    /bin/less $pdf_file  && rm $pdf_file
 	elif [ -d $@ ]; then
@@ -140,7 +146,7 @@ function less()
 	    # ps_file="$(echo "$@" | sed s:\.ps:\.txt:)"
 	    # $ps_file  && rm $ps_file
 	elif [ ! "x$(echo $@ | grep '\(.c\|.cpp\|.h\|hpp\|.pl\|.sh\)')" = "x" ]; then
-	    vim $@ -R -c 'syntax on'
+	    vim $@ -R
 	elif [ ! "x$(echo $@ | grep '\(.tar.\(gz\|bz2\)\|.zip\|.tgz\|.deb\)' )" = "x" ]; then
 	    lesspipe $@ | /bin/less
 	elif [ "$(file --mime-type $@  | cut -d: -f2 | cut -d/ -f1 | sed s/\ //g)" = "image" ];then
