@@ -10,5 +10,5 @@
 	ps = push
 	pl = pull
 	l = log --pretty=format:'(%h) %s'
-	s = status
+	s = status -s
 	d = diff
