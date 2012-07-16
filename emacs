@@ -1,4 +1,5 @@
 (normal-top-level-add-to-load-path '("~/.elisp/") )
+(normal-top-level-add-to-load-path '("~/.elisp/magit") )
 
 (require 'keydef)
 
