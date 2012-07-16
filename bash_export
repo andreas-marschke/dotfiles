@@ -6,7 +6,7 @@ export PATH='/home/andreas/bin:/home/andreas/.local/usr/local/bin:/usr/local/bin
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
 export WINDOWMANAGER=/usr/bin/wmii
 # NOTE: editor global variable
-export EDITOR=/usr/bin/emacs
+export EDITOR=/usr/bin/vim
 export QUILT_PATCHES=debian/patches
 export CMAKE_MODULE_PATH=/usr/share/cmake/SharedDesktopOntologies/:/usr/share/cmake-2.8/Modules/
 export PROMPT_DIRTRIM=2
