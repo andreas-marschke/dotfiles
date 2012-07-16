@@ -12,7 +12,7 @@ unset imap_passive
 # ignore "Authentication-Results:"
 # ignore "DomainKey-Signature:"
 # ignore "DKIM-Signature:"
-hdr_order From To Cc
+hdr_order From To Cc X-Launchpad-Subscription
 ignore *
 unignore from: date subject to cc
 unignore x-mailing-list: 
