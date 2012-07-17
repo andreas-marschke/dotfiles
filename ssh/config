@@ -1,6 +1,4 @@
-Host *
-     PreferredAuthentications publickey,keyboard-interactive,password
-
+#### priv.config
 Host ein-elch.de
      User xxtjaxx
      Port 22
@@ -11,7 +9,7 @@ Host ein-elch.de
      # Tunnel no
      # TunnelDevice any:any
 
-Host *.xtxhb.ath.cx
+Host *.andreas-marschke.name
      User andreas
      Port 22
      IdentityFile ~/.ssh/id_rsa
@@ -24,6 +22,25 @@ Host *.xtxhb.ath.cx
 Host github.com
      User git
      IdentityFile ~/.ssh/id_rsa_github
+
+##### config
+Host *
+     PreferredAuthentications publickey,keyboard-interactive,password
+
+#### work.config
+Host duke.via.de
+     User andreas
+     IdentityFile ~/.ssh/id_rsa
+
 Host *.via.de
      User root
-     IdentityFile ~/.ssh/id_rsa 
+     IdentityFile ~/.ssh/id_rsa
+
+Host *.afterbuy.de
+     User root
+     IdentityFile ~/.ssh/id_rsa
+
+Host eu-cell.de
+     Port 52346
+     User root
+     IdentityFile ~/.ssh/id_rsa  
