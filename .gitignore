@@ -27,7 +27,6 @@
 *.tp
 *.userprefs
 *.vr
-*Makefile
 *bin/
 *build/
 *cache/
@@ -42,5 +41,6 @@ moc/softmixer
 *~
 \#*
 *ssh/authorized_keys
+*ssh/work.config
 *.netrwhist
 *elisp/rc*
