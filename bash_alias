@@ -166,6 +166,9 @@ make_video() {
     ffmpeg -f x11grab -r 25 -s $(xrandr  -q  | grep '\*\+' | grep -o '[0-9]*x[0-9]*') -i :0.0 $@
 }
 
+function mailqcount () {
+    mailq | grep @ | cut -d'@' -f2 | sort |  awk '{count[$1]++}END{for(j in count) printf j": " count[j]" \n"}'
+}
 
 ### __COMMENTS__
 
