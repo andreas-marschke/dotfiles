@@ -12,7 +12,7 @@
 (require 'w3m)
 (require 'org-install)
 (require 'iswitchb)
-
+(require 'nav)
 
 (load "~/.elisp/rc/emacs-rc-ccmode.el")
 (load "~/.elisp/rc/emacs-rc-cmake.el")
@@ -32,6 +32,8 @@
 (load "~/.elisp/rc/emacs-rc-sh-mode.el")
 (load "~/.elisp/rc/emacs-rc-w3m.el")
 (load "~/.elisp/rc/emacs-rc-yasnippet.el")
+
+(nav-disable-overeager-window-splitting)
 
 (custom-set-variables
  '(canlock-password "647dc58dfe29df3e23118aaabef8f78aa113039e")
