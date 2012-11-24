@@ -1,45 +1,35 @@
 
-[src/web/960.GS/]
-update = git pull origin master
 
-[src/web/chosen/]
-update = git pull origin master
 
-[src/web/g.raphael/]
-update = git pull origin master
+[src/conf/vim-pathogen]
+checkout = git clone 'https://github.com/tpope/vim-pathogen.git' 'vim-pathogen'
 
-[src/web/html5-boilerplate/]
-update = git pull origin master
+[src/python/fabric]
+checkout = git clone 'https://github.com/fabric/fabric' 'fabric'
 
-[src/web/JSON-js/]
-update = git pull origin master
+[src/conf/nerdtree]
+checkout = git clone 'https://github.com/scrooloose/nerdtree.git' 'nerdtree'
 
-[src/web/less.js/]
-update = git pull origin master
+[src/latex/LaTeX-Template-Thesis]
+checkout = git clone 'https://github.com/pads-fhs/LaTeX-Template-Thesis' 'LaTeX-Template-Thesis'
 
-[src/web/Modernizr/]
-update = git pull origin master
+[src/web/ant-build-script]
+checkout = git clone 'https://github.com/h5bp/ant-build-script' 'ant-build-script'
 
-[src/web/popcorn-js/]
-update = git pull origin master
+[src/python/django-blog-zinnia]
+checkout = git clone 'https://github.com/Fantomas42/django-blog-zinnia' 'django-blog-zinnia'
 
-[src/web/rickshaw/]
-update = git pull origin master
+[src/web/rickshaw]
+checkout = git clone 'https://github.com/shutterstock/rickshaw' 'rickshaw'
 
-[src/web/simpleSlider/]
-update = git pull origin master
+[src/web/scripted]
+checkout = git clone 'https://github.com/scripted-editor/scripted' 'scripted'
 
-[share/doc/learn/learn-python-the-hard-way/] 
-update = git pull origin master
+[src/web/simpleSli.de]
+checkout = git clone 'https://github.com/sdepold/simpleSli.de' 'simpleSli.de'
 
-[share/doc/learn/learn-regex-the-hard-way/] 
-update = git pull origin master
+[src/web/SQLol]
+checkout = git clone 'https://github.com/SpiderLabs/SQLol' 'SQLol'
 
-[share/doc/learn/learnrubythehardway/] 
-update = git pull origin master
-
-[share/doc/learn/learn-sql-the-hard-way/] 
-update = git pull origin master
-
-[share/doc/learn/learn-x-the-hard-way/] 
-update = git pull origin master
+[src/web/jquery]
+checkout = git clone 'git://github.com/jquery/jquery.git' 'jquery'
