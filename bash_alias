@@ -21,6 +21,7 @@ alias rm="rm -i"
 alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/.muttrcs"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
+alias emc="emacsclient -c -nw"
 ## for git
 function git_count() 
 {
@@ -42,6 +43,7 @@ alias emacs="emacs23 -nw -f server-start"
 alias m='make'
 alias buildpkg='dpkg-buildpackage -rfakeroot -S -D -tc -sa -sd -sgpg'
 alias dpkg-build='dpkg-buildpackage -rfakeroot'
+alias git-tf="/home/andreas/src/work/git-tf/git-tf/git-tf"
 
 # misc
 alias g='git'
@@ -52,6 +54,20 @@ alias procmount_arm='sudo mount -o bind proc ./proc/'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
 alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
+
+function mkhpiso
+{
+    if [ -z $1 ]; then 
+	echo "mkhpiso src dst"
+	return
+    fi
+    genisoimage -N -J -joliet-long \
+	-b system/isolinux.bin \
+	-c system/boot.cat \
+	-no-emul-boot \
+	-boot-load-size 4 \
+	-boot-info-table -o $2 $1
+}
 
 function js_script()
 {
