@@ -1,4 +1,3 @@
-
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -50,7 +49,8 @@ for script in "bash_alias" "bash_export" ; do
 	fi
 done 
 
-PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
+PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(_vcs_check)\[\033[01;35m\]\$>\[\033[00m\] '
+#PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
 
 if [ ! "x$PRESENTATION" = "x" ]; then
 	PS1='\u@\h: \w \[\033[01;31m\]$(svn_check)$(git_branch)\[\033[00m\]\$ '
@@ -62,3 +62,5 @@ fi
 #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;31m\]\u\[\033[01;33m\]@\[\033[0;31m\]\H\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[1;33m\]\$>\[\033[00m\] '
 #PS1='${debian_chroot:+($debian_chroot)}\$PS2\u@\h:\w\$ '
 #################### various prompts ########################
+
+
