@@ -12,3 +12,5 @@
 	l = log --pretty=format:'(%h) %s'
 	s = status -s
 	d = diff
+[url "git://git.debian.org/d-i/"]
+	insteadOf = git+ssh://git.debian.org/git/d-i/
