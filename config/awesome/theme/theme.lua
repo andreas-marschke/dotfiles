@@ -37,7 +37,7 @@ local path = "/home/andreas/.config/awesome/theme"
 theme.taglist_squares_sel   = path .. "/taglist/squarefw.png"
 theme.taglist_squares_unsel = path .. "/taglist/squarew.png"
 
-theme.tasklist_floating_icon = path .. "/tasklist/floating.png"
+theme.tasklist_floating_icon = path .. "/tasklist/floatingw.png"
 
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]

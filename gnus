@@ -7,6 +7,14 @@
 (add-to-list 'gnus-secondary-select-methods '(nntp "news.gnus.org"))
 (add-to-list 'gnus-secondary-select-methods '(nntp "news.gmane.org"))
 (add-to-list 'gnus-secondary-select-methods '(nnimap "gmail" (nnimap-address "imap.gmail.com") (nnimap-server-port 993) (nnimap-stream ssl)))
+;; Mail and Name
+(setq user-mail-address "andres.marschke@gmail.com")
+(setq user-full-name "Andreas Marschke")
+
+;; Methods of retrieving mail
+(add-to-list 'gnus-secondary-select-methods '(nntp "news.eternal-september.org"))
+(add-to-list 'gnus-secondary-select-methods '(nntp "news.gmane.org"))
+(add-to-list 'gnus-secondary-select-methods '(nntp "news.gnus.org"))
 
 (setq send-mail-function 'smtpmail-send-it)
 (setq message-send-mail-function 'smtpmail-send-it)
@@ -16,5 +24,8 @@
 				       "465"
 				       "andreas.marschke"
 				       nil)))
+;;; Fix pattern so gnus works with GMail
+(setq gnus-ignored-newsgroups "^^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\”]\”[#’()]")
 
 
+(setq gnus-group-line-format "%M%S%p%P%5y:%B%(%G%)\n")

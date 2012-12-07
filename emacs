@@ -20,7 +20,7 @@
 (load "~/.elisp/rc/emacs-rc-gdb.el")
 (load "~/.elisp/rc/emacs-rc-git.el")
 (load "~/.elisp/rc/emacs-rc-info.el")
-(load "~/.elisp/rc/emacs-rc-ispell.el")
+;(load "~/.elisp/rc/emacs-rc-ispell.el")
 (load "~/.elisp/rc/emacs-rc-keydefs.el")
 (load "~/.elisp/rc/emacs-rc-lisp.el")
 (load "~/.elisp/rc/emacs-rc-misc-things.el")

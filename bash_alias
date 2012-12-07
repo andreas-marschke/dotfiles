@@ -19,60 +19,73 @@ alias rm="rm -i"
 #   line as well as keeping the quotas clear
 
 alias mutt="mutt -F ~/.muttrc"
-alias mutts="mutt -F ~/.muttrcs"
+alias mutts="mutt -F ~/.muttrc_serious"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
+alias emc="emacsclient -c -nw"
 ## for git
 function git_count() 
 {
-	git status -s | awk '{count[$1]++}END{for(j in count) printf j ": " count[j]" "}' 
+    git status -s | awk '{count[$1]++}END{for(j in count) printf j ": " count[j]" "}' 
 }
 function  git_branch()
 {
-	git branch 2>/dev/null 1>/dev/null && echo -n $(git branch | grep '^\*' | cut -d" " -f2-) "[$(git_count | sed s:\ $::g)] "
+    git branch 2>/dev/null >/dev/null && \
+	echo -n $(git branch | grep '^\*' | cut -d" " -f2-) "[$(git_count | sed s:\ $::g)]"
 }
+
+function _vcs_check() 
+{
+    if [ -z $NO_VCS_NOW ]; then
+	if [ ! -z "$(svn_check)" ] || [ ! -z "$(git_branch)" ]; then
+	    echo -n $(svn_check)$(git_branch)" "
+	fi
+    fi
+}
+
+function toggle_vcs()
+{
+    if [ -z $NO_VCS_NOW ]; then
+	export NO_VCS_NOW=1
+    else
+	export NO_VCS_NOW=
+    fi
+}
+
 ## for svn
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
 
-## display current load
-alias cur_load='uptime | grep -o "load\ average:\ [0-9]*.[0-9]*,\ [0-9]*.[0-9]*,\ [0-9]*.[0-9]*" | cut -d: -f2 | cut -d, -f2 | sed s/\ //g'
-
 # general development
-alias screen='tmux'
 alias emacs="emacs23 -nw -f server-start"
 alias m='make'
-alias buildpkg='dpkg-buildpackage -rfakeroot -S -D -tc -sa -sd -sgpg'
-alias dpkg-build='dpkg-buildpackage -rfakeroot'
+alias git-tf="/home/andreas/src/work/git-tf/git-tf/git-tf"
 
 # misc
 alias g='git'
 alias s='source ~/.bashrc'
 alias getproc='ps awxf -o pid,ni,pcpu,%mem,wchan,cmd | grep -v "grep" | grep -i '
 alias aptitude='sudo aptitude'
-alias procmount_arm='sudo mount -o bind proc ./proc/'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
 alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
 
-function js_script()
+function mkhpiso
 {
-	for i in $(ls);do echo '<script src="js/libs/'$i'"></script>';done
+    if [ -z $1 ]; then 
+	echo "mkhpiso src dst"
+	return
+    fi
+    genisoimage -N -J -joliet-long \
+	-b system/isolinux.bin \
+	-c system/boot.cat \
+	-no-emul-boot \
+	-boot-load-size 4 \
+	-boot-info-table -o $2 $1
 }
 
 function presentation() {
 	export PRESENTATION=1
 	source ~/.bashrc
 }
-
-function moovida()
-{
-    for i in $( ps ax | grep irxevent | cut -d" " -f1 );
-    do
-	kill $i
-    done
-    irxevent --daemon
-    /usr/bin/moovida $@
-}
-
 
 function rmtmp()
 {
@@ -95,26 +108,6 @@ function cbuild()
     mkdir build && cd build && \
 	cmake -DCMAKE_BUILD_TYPE=Debugfull -DCMAKE_INSTALL_PREFIX=/usr .. && \
 	make -j3 && cd ..
-}
-
-function elisp_update_git()
-{
-    cur_dir=$(pwd)
-    root_dir=$HOME/.elisp
-    cd $root_dir
-    for i in $(find -maxdepth 2 -regex '\(.*/\.git\|.*/\.svn.*\)')
-    do # only search next dir below $root_dir
-	echo -e '\033[01;33m'$i'\033[00;00m'  #bits of color
-	subdir=$root_dir/$(echo $i | sed 's:\(\./\|\.git\|/\.svn\)::g')
-	if [ -d $subdir/.svn ]
-	then
-	    cd $subdir && svn up 1>/dev/null
-	elif [ -d $subdir/.git ]
-	then
-	    cd $subdir && git pull 1>/dev/null
-	fi
-    done
-    cd $cur_dir
 }
 
 
@@ -191,3 +184,43 @@ function mailqcount () {
 #     cd $cur_dir
 # }
 #-------------------------------
+# second version... just use mr or git submodules
+#-------------------------------
+# function elisp_update_git()
+# {
+#     cur_dir=$(pwd)
+#     root_dir=$HOME/.elisp
+#     cd $root_dir
+#     for i in $(find -maxdepth 2 -regex '\(.*/\.git\|.*/\.svn.*\)')
+#     do # only search next dir below $root_dir
+# 	echo -e '\033[01;33m'$i'\033[00;00m'  #bits of color
+# 	subdir=$root_dir/$(echo $i | sed 's:\(\./\|\.git\|/\.svn\)::g')
+# 	if [ -d $subdir/.svn ]
+# 	then
+# 	    cd $subdir && svn up 1>/dev/null
+# 	elif [ -d $subdir/.git ]
+# 	then
+# 	    cd $subdir && git pull 1>/dev/null
+# 	fi
+#     done
+#     cd $cur_dir
+# }
+#-------------------------------
+# kept for sentimental reasons :)
+#-------------------------------
+# function moovida()
+# {
+#     for i in $( ps ax | grep irxevent | cut -d" " -f1 );
+#     do
+# 	kill $i
+#     done
+#     irxevent --daemon
+#     /usr/bin/moovida $@
+# }
+#-------------------------------
+# Old func for creating script tags ( I'm lazy sometimes...)
+#-------------------------------
+# function js_script()
+# {
+#     for i in $(ls);do echo '<script src="js/libs/'$i'"></script>';done
+# }
