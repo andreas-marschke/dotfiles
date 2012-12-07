@@ -32,6 +32,7 @@
 (load "~/.elisp/rc/emacs-rc-sh-mode.el")
 (load "~/.elisp/rc/emacs-rc-w3m.el")
 (load "~/.elisp/rc/emacs-rc-yasnippet.el")
+(load "~/.elisp/rc/emacs-rc-gnus.el")
 
 (nav-disable-overeager-window-splitting)
 
