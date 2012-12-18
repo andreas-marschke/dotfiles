@@ -160,7 +160,7 @@ make_video() {
 }
 
 function mailqcount () {
-    mailq | grep @ | cut -d'@' -f2 | sort |  awk '{count[$1]++}END{for(j in count) printf j": " count[j]" \n"}'
+    mailq | grep @ | cut -d'@' -f2 | sort |  awk '{count[$1]++}END{for(j in count) printf count[j] "\t" j" \n"}' | sort -g
 }
 
 ### __COMMENTS__
