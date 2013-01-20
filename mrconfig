@@ -42,5 +42,21 @@ checkout = git clone 'https://github.com/sdepold/simpleSli.de' 'simpleSli.de'
 [src/web/SQLol]
 checkout = git clone 'https://github.com/SpiderLabs/SQLol' 'SQLol'
 
-[src/web/jquery]
-checkout = git clone 'git://github.com/jquery/jquery.git' 'jquery'
+
+[src/web/backbone]
+checkout = git clone 'git://github.com/documentcloud/backbone.git' 'backbone'
+
+[src/web/d3]
+checkout = git clone 'https://github.com/mbostock/d3' 'd3'
+
+[src/web/underscore]
+checkout = git clone 'git://github.com/documentcloud/underscore.git' 'underscore'
+
+[src/web/d3-plugins]
+checkout = git clone 'https://github.com/d3/d3-plugins' 'd3-plugins'
+
+[src/web/Font-Awesome]
+checkout = git clone 'git://github.com/FortAwesome/Font-Awesome.git' 'Font-Awesome'
+
+[src/system/qt/qt5]
+checkout = git clone 'git://gitorious.org/qt/qt5.git' 'qt5'
