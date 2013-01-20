@@ -22,6 +22,7 @@ alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/.muttrc_serious"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 alias emc="emacsclient -c -nw"
+alias manifest="find -type f | grep -v 'git' | sed s:^\./::g > MANIFEST"
 ## for git
 function git_count() 
 {
@@ -36,8 +37,12 @@ function  git_branch()
 function _vcs_check() 
 {
     if [ -z $NO_VCS_NOW ]; then
-	if [ ! -z "$(svn_check)" ] || [ ! -z "$(git_branch)" ]; then
-	    echo -n $(svn_check)$(git_branch)" "
+	if [ ! -z "$(svn_check)" ]; then
+	    echo -n $(svn_check)" "
+	    return 0
+	elif [ ! -z "$(git_branch)" ]; then
+	    echo -n $(git_branch)" "
+	    return 0
 	fi
     fi
 }
