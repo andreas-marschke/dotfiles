@@ -4,3 +4,6 @@
 [submodule "elisp/less"]
 	path = elisp/less
 	url = git://github.com/purcell/less-css-mode.git
+[submodule "elisp/eproject"]
+	path = elisp/eproject
+	url = git://repo.or.cz/eproject.git
