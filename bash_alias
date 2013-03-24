@@ -72,7 +72,8 @@ alias aptitude='sudo aptitude'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
 alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
-
+alias cpus="lscpu -p | awk 'BEGIN{FS=","}{$cpuid[$i++] = $1}END{print $cpuid[0]+1}'"
+alias pcsx="pcsx -nogui -cdfile"
 function mkhpiso
 {
     if [ -z $1 ]; then 
