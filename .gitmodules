@@ -4,3 +4,6 @@
 [submodule "elisp/less"]
 	path = elisp/less
 	url = git://github.com/purcell/less-css-mode.git
+[submodule "elisp/yaml-mode"]
+	path = elisp/yaml-mode
+	url = git://github.com/yoshiki/yaml-mode.git

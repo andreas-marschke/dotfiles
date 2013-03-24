@@ -1,0 +1,8 @@
+color = true
+git = git
+prefix = ~/.share/npm
+rollback = true
+shell = /bin/bash
+usage = true
+userconfig = ~/.npmrc
+userignorefile = ~/.npmignore
