@@ -2,7 +2,7 @@
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=ignoredup
 export HISTSIZE=100000
-export PATH='/home/andreas/bin:/home/andreas/.local/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/sbin'
+export PATH='/home/andreas/.share/npm/bin/:/home/andreas/bin:/home/andreas/.local/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/sbin'
 export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
 export WINDOWMANAGER=/usr/bin/wmii
 # NOTE: editor global variable
