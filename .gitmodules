@@ -10,3 +10,9 @@
 [submodule "elisp/eproject"]
 	path = elisp/eproject
 	url = git://repo.or.cz/eproject.git
+[submodule "elisp/python-django"]
+	path = elisp/python-django
+	url = git://github.com/fgallina/python-django.el.git
+[submodule "elisp/nxhtml"]
+	path = elisp/nxhtml
+	url = git://github.com/emacsmirror/nxhtml.git
