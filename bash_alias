@@ -60,7 +60,7 @@ function toggle_vcs()
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
 
 # general development
-alias emacs="emacs23 -nw -f server-start"
+alias emacs="emacs24 -nw -f server-start"
 alias m='make'
 alias git-tf="/home/andreas/src/work/git-tf/git-tf/git-tf"
 
@@ -69,11 +69,13 @@ alias g='git'
 alias s='source ~/.bashrc'
 alias getproc='ps awxf -o pid,ni,pcpu,%mem,wchan,cmd | grep -v "grep" | grep -i '
 alias aptitude='sudo aptitude'
+alias apt-get='sudo apt-get'
 alias diff='diff -Naur'
 alias pastebin='curl -F "sprunge=<-" http://sprunge.us'
 alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
 alias cpus="lscpu -p | awk 'BEGIN{FS=","}{$cpuid[$i++] = $1}END{print $cpuid[0]+1}'"
 alias pcsx="pcsx -nogui -cdfile"
+alias virsh="virsh --connect=qemu+ssh://root@localhost/system"
 function mkhpiso
 {
     if [ -z $1 ]; then 
