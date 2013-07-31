@@ -16,3 +16,9 @@
 [submodule "elisp/nxhtml"]
 	path = elisp/nxhtml
 	url = git://github.com/emacsmirror/nxhtml.git
+[submodule "elisp/floobits"]
+	path = elisp/floobits
+	url = https://github.com/Floobits/floobits-emacs.git
+[submodule "elisp/python"]
+	path = elisp/python
+	url = https://github.com/leoliu/python-el.git
