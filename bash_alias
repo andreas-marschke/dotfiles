@@ -23,6 +23,12 @@ alias mutts="mutt -F ~/.muttrc_serious"
 alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 alias emc="emacsclient -c -nw"
 alias manifest="find -type f | grep -v 'git' | sed s:^\./::g > MANIFEST"
+function cleanmusic() {
+    for i in '*.log' '*.CUE' '*.cue' '*.m3u' '*.jpg' '*.m3u8';
+    do
+	find -name "$i" -delete || continue
+    done
+}
 ## for git
 function git_count() 
 {
