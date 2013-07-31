@@ -40,3 +40,20 @@ checkout = git clone 'https://github.com/d3/d3-plugins' 'd3-plugins'
 [src/web/Font-Awesome]
 checkout = git clone 'git://github.com/FortAwesome/Font-Awesome.git' 'Font-Awesome'
 
+[src/web/morris.js]
+checkout = git clone 'https://github.com/oesmith/morris.js.git' 'morris.js'
+
+[src/web/raphael]
+checkout = git clone 'https://github.com/DmitryBaranovskiy/raphael.git' 'raphael'
+
+[src/web/Redacted-Font]
+checkout = git clone 'https://github.com/christiannaths/Redacted-Font.git' 'Redacted-Font'
+
+[.elisp/floobits]
+checkout = git clone 'https://github.com/Floobits/floobits-emacs.git' 'floobits'
+
+[src/mail/dovecot]
+checkout = git clone 'https://github.com/Distrotech/dovecot.git' 'dovecot'
+
+[src/mail/exim]
+checkout = git clone 'https://github.com/Exim/exim.git' 'exim'
