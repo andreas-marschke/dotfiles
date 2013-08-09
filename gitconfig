@@ -12,6 +12,8 @@
 	l = log --pretty=format:'(%h) %s'
 	s = status -s
 	d = diff
+	lcsv = log --pretty=format:'\"%H\",\"%at\",\"%d\",\"%an\",\"%s\"'
 	ltree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
 [url "git://git.debian.org/d-i/"]
 	insteadOf = git+ssh://git.debian.org/git/d-i/
+
