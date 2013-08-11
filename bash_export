@@ -17,3 +17,5 @@ export PERL_MM_OPT="INSTALL_BASE=/home/andreas/perl5"
 export PERL5LIB="lib:/home/andreas/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/andreas/perl5/lib/:/home/andreas/perl5/lib/perl5/"
 export PATH="/home/andreas/perl5/bin:$PATH"
 export GITTF_HOME="/home/andreas/src/work/git-tf/git-tf"
+export PYTHONPATH="/usr/lib/python2.7:/usr/lib/python2.7/plat-x86_64-linux-gnu:/usr/lib/python2.7/lib-tk:/usr/lib/python2.7/lib-old:/usr/lib/python2.7/lib-dynload:/usr/local/lib/python2.7/dist-packages:/usr/lib/python2.7/dist-packages:/usr/lib/python2.7/dist-packages/FontTools:/usr/lib/python2.7/dist-packages/PIL:/usr/lib/python2.7/dist-packages/gtk-2.0:/usr/lib/pymodules/python2.7:/usr/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode:/home/andreas/.elisp/python"
+
