@@ -32,12 +32,17 @@ if has("autocmd")
   au FileType html set ts=2
 endif
 
+if has("autocmd")
+  au FileType javascript set sw=2
+  au FileType javascript set ts=2
+endif
+
 """ CSS Has mostly the depth of one therefore keep it at 4 spaces per tab
 """ This way I can still see which tag/id/class something is part of but still
 """ distinguish the two
 if has("autocmd")
-  au FileType css  set sw=8
-  au FileType css  set ts=8
+  au FileType css  set sw=2
+  au FileType css  set ts=2
 endif
 
 if has("autocmd")
