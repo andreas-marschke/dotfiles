@@ -4,13 +4,29 @@
 if [ -e .bash_export ];then
     . ~/.bash_export
 fi
-#/home/andreas/devel/branch/usr/share/cmake: ^^
+
 # append to the history file, don't overwrite it
 shopt -s histappend
+
+# cmdhist If set, bash attempts to save all lines of a 
+# multiple-line command in the same history entry.  This
+# allows easy re-editing of multi-line commands.
+shopt -s cmdhist
+
+# If  set,  a command name that is the name of a directory
+# is executed as if it were the argument to the cd command.
+# This option is only used by interactive shells
+shopt -s autocd 
+
+# If set, bash includes filenames beginning with a `.' 
+# in the results of pathname expansion.
+shopt -s dotglob
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+
+
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -48,6 +64,8 @@ for script in "bash_alias" "bash_export" ; do
 	   . ~/.${script}
 	fi
 done 
+
+HISTFILE=~/.bash_history
 
 toggle_vcs
 
