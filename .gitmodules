@@ -22,3 +22,9 @@
 [submodule "elisp/python"]
 	path = elisp/python
 	url = https://github.com/leoliu/python-el.git
+[submodule "elisp/yasnippet"]
+	path = elisp/yasnippet
+	url = https://github.com/capitaomorte/yasnippet.git
+[submodule "elisp/web-mode"]
+	path = elisp/web-mode
+	url = https://github.com/fxbois/web-mode.git
