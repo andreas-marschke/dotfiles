@@ -1,6 +1,6 @@
 color = true
 git = git
-prefix = ~/.share/npm
+prefix = ~/.local/share/npm
 rollback = true
 shell = /bin/bash
 usage = true
