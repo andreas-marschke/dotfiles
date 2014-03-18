@@ -28,3 +28,7 @@
 [submodule "elisp/web-mode"]
 	path = elisp/web-mode
 	url = https://github.com/fxbois/web-mode.git
+[submodule "elisp/ack-el"]
+	path = elisp/ack-el
+	url = https://github.com/leoliu/ack-el.git
+	branch = master
