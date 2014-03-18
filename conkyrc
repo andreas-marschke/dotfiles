@@ -1,8 +1,8 @@
 #avoid flicker
 double_buffer no
 #own window to run simultanious 2 or more conkys
-own_window yes
-own_window_transparent yes
+own_window no
+own_window_transparent no
 own_window_type normal
 own_window_hints undecorate,sticky,skip_taskbar,skip_pager
 #borders
