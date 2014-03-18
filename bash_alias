@@ -20,7 +20,7 @@ alias rm="rm -i"
 
 alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/.muttrc_serious"
-alias make-mykernel="make-kpkg --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
+alias make-mykernel="KBUILD_VERBOSE=1 make-kpkg --initrd --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 alias emc="emacsclient -c -nw"
 alias manifest="find -type f | grep -v 'git' | sed s:^\./::g > MANIFEST"
 function ocsp_check() {
