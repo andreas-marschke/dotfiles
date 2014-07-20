@@ -38,3 +38,6 @@
 [submodule "nagios-mode"]
 	path = elisp/nagios-mode
 	url = http://michael.orlitzky.com/git/nagios-mode.git
+[submodule "elisp/ios-config-mode"]
+	path = elisp/ios-config-mode
+	url = https://github.com/nibrahim/IOS-config-mode
