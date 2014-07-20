@@ -69,7 +69,8 @@ HISTFILE=~/.bash_history
 
 toggle_vcs
 
-PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(_vcs_check)\[\033[01;35m\]\$>\[\033[00m\] '
+PS1='\[\033[00;39m\]$(battery)\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(_vcs_check)\[\033[01;35m\]\$>\[\033[00m\] '
+
 #PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
 
 if [ ! "x$PRESENTATION" = "x" ]; then
