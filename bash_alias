@@ -17,12 +17,27 @@ alias rm="rm -i"
 # PROMPT STUFF #
 # - this is a hack to not crum everything in one
 #   line as well as keeping the quotas clear
-
+function battery() {
+	[ "x$(acpi | grep 'Dis' -o )" = "xDis" ] && echo -n '!'
+}
 alias mutt="mutt -F ~/.muttrc"
 alias mutts="mutt -F ~/.muttrc_serious"
 alias make-mykernel="KBUILD_VERBOSE=1 make-kpkg --initrd --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 alias emc="emacsclient -c -nw"
 alias manifest="find -type f | grep -v 'git' | sed s:^\./::g > MANIFEST"
+alias id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}"'
+alias t_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}"'
+alias d_id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
+alias td_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
+function from_epoch
+{
+        perl -MDateTime -e '$dt = DateTime->from_epoch( epoch => '$1'); print $dt->ymd," ",$dt->hms;'
+}
+
+function iscentos() { 
+	ssh $1 "test -e /etc/centos-release && echo Is Centos"
+}
+
 function ocsp_check() {
 	openssl s_client -connect $1:443 -tls1  -tlsextdebug  -status
 }
