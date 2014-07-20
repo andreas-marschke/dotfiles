@@ -32,3 +32,9 @@
 	path = elisp/ack-el
 	url = https://github.com/leoliu/ack-el.git
 	branch = master
+[submodule "dirtree"]
+	path = elisp/dirtree
+	url = https://github.com/zk/emacs-dirtree.git
+[submodule "nagios-mode"]
+	path = elisp/nagios-mode
+	url = http://michael.orlitzky.com/git/nagios-mode.git
