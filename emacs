@@ -38,6 +38,7 @@
 (require 'dirtree)
 (require 'nagios-mode)
 (require 'ios-config-mode)
+(require 'markdown-mode)
 
 (load "~/.elisp/rc/emacs-rc-ccmode.el")
 (load "~/.elisp/rc/emacs-rc-cmake.el")
