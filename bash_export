@@ -2,17 +2,29 @@
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
 export HISTCONTROL=ignoreboth:
 export HISTSIZE=100000
-export PATH='node_modules/.bin/:/home/andreas/.share/npm/bin/:/home/andreas/bin:/home/andreas/.local/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/sbin'
-export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
-export WINDOWMANAGER=/usr/bin/wmii
+
+# local personal scripts 
+export PATH="/home/andreas/bin:$PATH"
+
+# if there are packages installed in npms bin dir include them too
+export PATH="/home/andreas/.share/npm/bin/:$PATH"
+
+# let me execute locally installed scripts from npm to avoid -g
+export PATH="node_modules/.bin/:$PATH"
+
+# locally installed bins to .local/usr/local/bin
+export PATH="/home/andreas/.local/usr/local/bin:$PATH"
+
+# add scripts installed using cpan
+export PATH="/home/andreas/perl5/bin:$PATH"
+
+
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
+
 # NOTE: editor global variable
 export EDITOR=/usr/bin/vim
+
 export QUILT_PATCHES=debian/patches
-export CMAKE_MODULE_PATH=/usr/share/cmake/SharedDesktopOntologies/:/usr/share/cmake-2.8/Modules/
 export PROMPT_DIRTRIM=2
-export PERL5LIB='/etc/perl:/usr/local/lib/perl/5.12.4:/usr/local/share/perl/5.12.4:/usr/lib/perl5:/usr/share/perl5:/usr/lib/perl/5.12:/usr/share/perl/5.12:/usr/local/lib/site_perl:/home/andreas/.local/usr/local/lib/perl/5.12.4:/home/andreas/.local/usr/local/share/perl:/home/andreas/.local/usr/local/lib/perl:/home/andreas/.local/usr/lib/perl'
-export PERL_LOCAL_LIB_ROOT="/home/andreas/perl5"
-export PERL_MB_OPT="--install_base /home/andreas/perl5"
-export PERL_MM_OPT="INSTALL_BASE=/home/andreas/perl5"
+
 export PERL5LIB="lib:/home/andreas/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/andreas/perl5/lib/:/home/andreas/perl5/lib/perl5/"
-export PATH="/home/andreas/perl5/bin:$PATH"
