@@ -39,6 +39,7 @@
 (require 'nagios-mode)
 (require 'ios-config-mode)
 (require 'markdown-mode)
+(require 'nodejs-repl)
 
 (load "~/.elisp/rc/emacs-rc-ccmode.el")
 (load "~/.elisp/rc/emacs-rc-cmake.el")
@@ -57,6 +58,7 @@
 (load "~/.elisp/rc/emacs-rc-w3m.el")
 (load "~/.elisp/rc/emacs-rc-yasnippet.el")
 (load "~/.elisp/rc/emacs-rc-python.el")
+(load "~/.elisp/rc/emacs-rc-js.el")
 (load "~/.elisp/rc/emacs-rc-common-hooks.el")
 
 (nav-disable-overeager-window-splitting)
