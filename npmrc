@@ -5,4 +5,5 @@ rollback = true
 shell = /bin/bash
 usage = true
 userconfig = ~/.npmrc
+cache-max = 1
 userignorefile = ~/.npmignore
