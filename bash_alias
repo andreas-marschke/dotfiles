@@ -29,6 +29,7 @@ alias id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/aud
 alias t_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}"'
 alias d_id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias td_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
+alias server="python -mSimpleHTTPServer"
 function from_epoch
 {
         perl -MDateTime -e '$dt = DateTime->from_epoch( epoch => '$1'); print $dt->ymd," ",$dt->hms;'
@@ -56,7 +57,7 @@ function cleanmusic() {
 ## for git
 function git_count() 
 {
-    git status -s | awk '{count[$1]++}END{for(j in count) printf j ": " count[j]" "}' 
+    echo -n "$(git status -s | awk '{count[$1]++}END{for(j in count) printf j ": " count[j]" "}')$(git status  | grep 'by [0-9]* commits' -o | sed 's/by \([0-9]*\) commits/C: \1/g')"
 }
 function  git_branch()
 {
@@ -92,7 +93,6 @@ alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -
 # general development
 alias emacs="emacs24 -nw -f server-start"
 alias m='make'
-alias git-tf="/home/andreas/src/work/git-tf/git-tf/git-tf"
 
 # misc
 alias g='git'

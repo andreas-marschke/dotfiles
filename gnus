@@ -4,9 +4,6 @@
 ;(setq gnus-summary-line-format "%U%R%z%I%(%[%4L: %-23,23f%]%) %s\n" )
 (setq gnus-summary-line-format "%U[ %d ]%R %I \"%S\"\n" )
 (setq gnus-select-method '(nntp "news.eternal-september.org"))
-(add-to-list 'gnus-secondary-select-methods '(nntp "news.gnus.org"))
-(add-to-list 'gnus-secondary-select-methods '(nntp "news.gmane.org"))
-(add-to-list 'gnus-secondary-select-methods '(nnimap "gmail" (nnimap-address "imap.gmail.com") (nnimap-server-port 993) (nnimap-stream ssl)))
 ;; Mail and Name
 (setq user-mail-address "andres.marschke@gmail.com")
 (setq user-full-name "Andreas Marschke")
