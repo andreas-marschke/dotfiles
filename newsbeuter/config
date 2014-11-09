@@ -1,6 +1,4 @@
-urls-source "googlereader"
 always-display-description true
 auto-reload yes
-browser "chromium %u"
+browser "google-chrome %u"
 display-article-progress yes
-include "~/.newsbeuter/greader-cred"
