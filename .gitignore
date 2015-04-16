@@ -31,8 +31,7 @@
 *bin/
 *build/
 *cache/
-*id_rsa
-*id_rsa_github
+*id_rsa*
 *known_hosts
 *last_directory
 *pid
