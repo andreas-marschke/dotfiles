@@ -1,4 +1,3 @@
-http://planet.debian.org/atom.xml
 http://planet.debian-administration.org/rss10.xml
 http://www.freiesmagazin.de/rss.xml
 http://www.linux-magazin.de/rss/feed/news
@@ -44,7 +43,6 @@ http://nicolasgallagher.com/feed/
 http://feeds.feedburner.com/paul-irish
 http://perlhacks.com/feed/
 http://www.perl.com/pub/atom.xml
-http://www.phoronix.com/rss.php
 http://planet.debian.org/rss20.xml
 http://planet.gnome.org/rss20.xml
 http://planet.gnu.org/rss20.xml
@@ -72,3 +70,9 @@ http://www.pixelgraphix.de/pixelgraphix.xml
 http://www.webkrauts.de/feed/
 http://www.perun.net/feed/
 http://planet.emacsen.org/atom.xml
+https://groups.google.com/forum/feed/nodejs/topics/atom.xml?num=15
+http://blogs.msdn.com/b/ieinternals/rss.aspx
+http://emacsrocks.com/atom.xml
+http://darrenmyher.wordpress.com/feed/atom/
+http://techblog.netflix.com/rss.xml
+https://groups.google.com/forum/feed/nodejs/msgs/atom.xml?num=15

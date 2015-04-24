@@ -1,4 +1,4 @@
 always-display-description true
 auto-reload yes
-browser "google-chrome %u"
+browser "$(xdg-open %u 2>&1 > /dev/null &)&"
 display-article-progress yes
