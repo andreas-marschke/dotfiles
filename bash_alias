@@ -21,7 +21,6 @@ function battery() {
 	[ "x$(acpi | grep 'Dis' -o )" = "xDis" ] && echo -n '!'
 }
 alias mutt="mutt -F ~/.muttrc"
-alias mutts="mutt -F ~/.muttrc_serious"
 alias make-mykernel="KBUILD_VERBOSE=1 make-kpkg --initrd --bzimage --jobs 5 --rootcmd fakeroot --revision 01 kernel_image"
 alias emc="emacsclient -c -nw"
 alias manifest="find -type f | grep -v 'git' | sed s:^\./::g > MANIFEST"
@@ -30,6 +29,7 @@ alias t_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/shar
 alias d_id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias td_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias server="python -mSimpleHTTPServer"
+
 function from_epoch
 {
         perl -MDateTime -e '$dt = DateTime->from_epoch( epoch => '$1'); print $dt->ymd," ",$dt->hms;'
@@ -91,7 +91,7 @@ function toggle_vcs()
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
 
 # general development
-alias emacs="emacs24 -nw -f server-start"
+alias emacs="emacs-24.5 -nw -f server-start"
 alias m='make'
 
 # misc
@@ -199,6 +199,10 @@ make_video() {
 
 function mailqcount () {
     mailq | grep @ | cut -d'@' -f2 | sort |  awk '{count[$1]++}END{for(j in count) printf count[j] "\t" j" \n"}' | sort -g
+}
+
+function countoccurence {
+    sort |  awk '{count[$1]++}END{for(j in count) printf count[j] "\t" j" \n"}' | sort -g
 }
 
 ### __COMMENTS__
