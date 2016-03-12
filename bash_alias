@@ -10,6 +10,8 @@ if [ -e /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+else
+	alias ls='ls -FG'
 fi
 
 alias rm="rm -i"
@@ -29,6 +31,14 @@ alias t_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/shar
 alias d_id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias td_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias server="python -mSimpleHTTPServer"
+
+function phantom_debug
+{
+    echo "Using Phantom Binary from  $(which phantomjs)"
+    echo "---"
+    echo "URL: http://localhost:9000"
+    phantomjs --debug=true --remote-debugger-port=9000 --remote-debugger-autorun=true $@
+}
 
 function from_epoch
 {
@@ -106,6 +116,7 @@ alias rot13="tr '[a-m][n-z][A-M][N-Z]' '[n-z][a-m][N-Z][A-M]'"
 alias cpus="lscpu -p | awk 'BEGIN{FS=","}{$cpuid[$i++] = $1}END{print $cpuid[0]+1}'"
 alias pcsx="pcsx -nogui -cdfile"
 alias virsh="virsh --connect=qemu+ssh://root@localhost/system"
+alias maven="mvn"
 function mkhpiso
 {
     if [ -z $1 ]; then 
@@ -162,24 +173,24 @@ function lintian-check()
 function less()
 {
     if [ "x$@" = "x"  ]; then
-	/bin/less
+	/usr/bin/less
     else
 	if [ ! "x$(echo $@ | grep .pdf)" = "x" ]; then
 	    pdftotext $@
 	    pdf_file="$(echo "$@" | sed s:\.pdf:\.txt:)"
-	    /bin/less $pdf_file  && rm $pdf_file
+	    /usr/bin/less $pdf_file  && rm $pdf_file
 	elif [ -d $@ ]; then
-	    ls $@	
+	    ls $@
 	elif [ ! "x$(echo $@ | grep '.[Hh][Tt][Mm][Ll]')" = "x" ]; then
 	    w3m $@
 	elif [ ! "x$(echo $@ | grep .ps)" = "x" ]; then
-	    ps2txt -layout $@ | /bin/less
+	    ps2txt -layout $@ | /usr/bin/less
 	    # ps_file="$(echo "$@" | sed s:\.ps:\.txt:)"
 	    # $ps_file  && rm $ps_file
 	elif [ ! "x$(echo $@ | grep '\(.c\|.cpp\|.h\|hpp\|.pl\|.sh\)')" = "x" ]; then
 	    vim $@ -R
 	elif [ ! "x$(echo $@ | grep '\(.tar.\(gz\|bz2\)\|.zip\|.tgz\|.deb\)' )" = "x" ]; then
-	    lesspipe $@ | /bin/less
+	    lesspipe $@ | /usr/bin/less
 	elif [ "$(file --mime-type $@  | cut -d: -f2 | cut -d/ -f1 | sed s/\ //g)" = "image" ];then
 	    feh $@
 	else
