@@ -8,12 +8,13 @@
 [alias]
 	ci = commit
 	ps = push
+	co = checkout
 	pl = pull
 	l = log --pretty=format:'(%h) %s'
 	s = status -s
 	d = diff
 	lcsv = log --pretty=format:'\"%H\",\"%at\",\"%an\",\"%ae\",\"%s\"'
 	ltree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-[url "git://git.debian.org/d-i/"]
-	insteadOf = git+ssh://git.debian.org/git/d-i/
 
+[http]
+sslverify = no
