@@ -3,28 +3,75 @@
 export HISTCONTROL=ignoreboth:
 export HISTSIZE=100000
 
+#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
+
 # local personal scripts 
-export PATH="/home/andreas/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
+
+# Java Setup
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_71.jdk/Contents/Home/jre"
+export JAVA_JDK_HOME="$JAVA_HOME/../"
+export PATH="$JAVA_JDK_HOME/bin:$PATH"
+
+# tomcat setup
+export TOMCAT_PATH="/usr/local/tomcat"
+export PATH="$TOMCAT_PATH/bin:$PATH"
+
+# jboss path
+export JBOSS_HOME="$HOME/Applications/jboss-4.2.2.GA"
+export PATH="$JBOSS_HOME/bin:$PATH"
+
+# apache ant bin
+export ANT_OPTS=-Xmx1g
+export ANT_HOME="$HOME/src/dependencies/apache-ant-1.9.4"
+export PATH="$ANT_HOME/bin:$PATH"
+
+# apache maven install
+export MVN_HOME="$HOME/src/dependencies/apache-maven-3.3.1"
+export PATH="$MVN_HOME/bin:$PATH"
 
 # if there are packages installed in npms bin dir include them too
-export PATH="/home/andreas/.share/npm/bin/:$PATH"
+export PATH="$HOME/.share/npm/bin/:$PATH"
+
+# add "global executable directory for npm"
+export PATH="$HOME/.local/share/npm/bin/:$PATH"
 
 # let me execute locally installed scripts from npm to avoid -g
 export PATH="node_modules/.bin/:$PATH"
 
 # locally installed bins to .local/usr/local/bin
-export PATH="/home/andreas/.local/usr/local/bin:$PATH"
+export PATH="$HOME/.local/usr/local/bin:$PATH"
 
 # add scripts installed using cpan
-export PATH="/home/andreas/perl5/bin:$PATH"
+export PATH="$HOME/perl5/bin:$PATH"
 
+# add binary path for dnsmasq
+export PATH="/usr/local/opt/dnsmasq/sbin:$PATH"
 
-#export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
+# gradle HOME Path
+export GRADLE_HOME="$HOME/src/java/gradle/gradle-2.14/"
+export PATH="$GRADLE_HOME/bin:$PATH"
+
+# PostgreSQL Path
+export PG_HOME="/Applications/Postgres.app/Contents/Versions/9.3/"
+export PATH="$PG_HOME/bin:$PATH"
 
 # NOTE: editor global variable
 export EDITOR=/usr/bin/vim
 
-export QUILT_PATCHES=debian/patches
+# XCode Path
+export XCODE_PATH="/Applications/Xcode.app/Contents/Developer/usr/"
+export PATH="$XCODE_PATH/bin:$PATH"
+
+# JadX Binary Path
+export JADX_HOME="$HOME/src/java/jadx/current/bin"
+export PATH="$JADX_HOME:$PATH"
+
+#export QUILT_PATCHES=debian/patches
 export PROMPT_DIRTRIM=2
 
-export PERL5LIB="lib:/home/andreas/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/andreas/perl5/lib/:/home/andreas/perl5/lib/perl5/"
+export PERL5LIB="lib:$HOME/perl5/lib/perl5/x86_64-linux-gnu-thread-multi:/home/andreas/perl5/lib/:/home/andreas/perl5/lib/perl5/"
+export MSF_DATABASE_CONFIG="$HOME/Applications/metasploit-framework/config/database.yml"
+
+export ANDROID_HOME="/usr/local/opt/android-sdk"
+export ANDROID_NDK_HOME="/usr/local/Cellar/android-ndk/r12b"
