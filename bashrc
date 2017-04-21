@@ -1,9 +1,12 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-if [ -e .bash_export ];then
-    . ~/.bash_export
-fi
+# add all source alias and export scripts
+for script in "bash_alias" "bash_export" "bash_alias_soasta"; do 
+	if [ -f ~/.${script} ]; then
+	   . ~/.${script}
+	fi
+done 
 
 # append to the history file, don't overwrite it
 shopt -s histappend
@@ -58,18 +61,11 @@ if [ -f /etc/bash_completion ]; then
    . /etc/bash_completion
 fi
 
-# add all source alias and export scripts
-for script in "bash_alias" "bash_export" ; do 
-	if [ -f ~/.${script} ]; then
-	   . ~/.${script}
-	fi
-done 
-
 HISTFILE=~/.bash_history
 
 toggle_vcs
 
-PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(_vcs_check)\[\033[01;35m\]\$>\[\033[00m\] '
+PS1='\[\033[01;31m\]{$(echo $?)} \[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(_vcs_check)\[\033[01;35m\]\$>\[\033[00m\] '
 
 #PS1='\[\033[01;33m\]($(date "+%H:%M")) ${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@[\[\033[0;31m\]\H\[\033[01;32m\]]\[\033[01;34m\] \w \[\033[01;33m\]$(svn_check)$(git_branch)\[\033[01;35m\]\$>\[\033[00m\] '
 
