@@ -1,8 +1,6 @@
-all: std.config work.config private.config
+all: std.config private.config
 	cat *.config > config
 std.config:
-
-work.config:
 
 private.config:
 
