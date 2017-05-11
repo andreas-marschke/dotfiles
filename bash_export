@@ -49,7 +49,7 @@ export PATH="$HOME/perl5/bin:$PATH"
 export PATH="/usr/local/opt/dnsmasq/sbin:$PATH"
 
 # gradle HOME Path
-export GRADLE_HOME="$HOME/src/java/gradle/gradle-2.14/"
+export GRADLE_HOME="$HOME/src/java/gradle/gradle-3.5/"
 export PATH="$GRADLE_HOME/bin:$PATH"
 
 # PostgreSQL Path
@@ -66,6 +66,10 @@ export PATH="$XCODE_PATH/bin:$PATH"
 # JadX Binary Path
 export JADX_HOME="$HOME/src/java/jadx/current/bin"
 export PATH="$JADX_HOME:$PATH"
+
+# Firefox Path
+export FIREFOX_HOME="/Applications/Firefox.app/Contents/MacOS/"
+export PATH="$FIREFOX_HOME:$PATH"
 
 #export QUILT_PATCHES=debian/patches
 export PROMPT_DIRTRIM=2
