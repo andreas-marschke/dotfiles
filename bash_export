@@ -18,7 +18,7 @@ export TOMCAT_PATH="/usr/local/tomcat"
 export PATH="$TOMCAT_PATH/bin:$PATH"
 
 # jboss path
-export JBOSS_HOME="$HOME/Applications/jboss-4.2.2.GA"
+export JBOSS_HOME="/Applications/wildfly"
 export PATH="$JBOSS_HOME/bin:$PATH"
 
 # apache ant bin
@@ -79,3 +79,5 @@ export MSF_DATABASE_CONFIG="$HOME/Applications/metasploit-framework/config/datab
 
 export ANDROID_HOME="/usr/local/opt/android-sdk"
 export ANDROID_NDK_HOME="/usr/local/Cellar/android-ndk/r12b"
+
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
