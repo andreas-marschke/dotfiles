@@ -1,10 +1,13 @@
 [user]
 	name = Andreas Marschke
 	email = andreas.marschke@gmail.com
+	signingkey = 4BA648AAB827942D
 [apply]
 	whitespace=fix
 [color]
 	ui = auto
+[commit]
+	gpgsign = true
 [alias]
 	ci = commit
 	ps = push
@@ -18,3 +21,7 @@
 
 [http]
 sslverify = no
+[gpg]
+	program = gpg
+[core]
+	excludesfile = /Users/amarschke/.gitignore_global

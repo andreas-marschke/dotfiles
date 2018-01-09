@@ -164,7 +164,6 @@ termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
 # backtick 5 2 2   /home/andreas/bin/total-space 
 # backtick 6 30 30 /bin/cat /etc/debian_version
 # backtick 7 30 30 /bin/uname -sr
-# backtick 8 1 1   /home/andreas/bin/ip_r
 
 hardstatus alwayslastline "%{fB}[%{fB}%4`] %{fY}%3`%{fB} - %{fg}%1` %{fg}(%2`) %{fb}load: %l %{fY} %d.%m.%Y %{fb} ( %{fG}%c %{fb})%="
 # hardstatus alwayslastline "%{kb}%?%-Lw%?%{bw}%n*%f %t%?(%u)%?%{ky}%?%+Lw%?"
@@ -261,9 +260,6 @@ term screen-bce
 msgwait 10
 # Uncomment one/some following lines to automatically let
 # SCREEN start some programs in the given window numbers:
-screen -t EMACS       0 emacs -nw -f server-start -D --debug-init
-screen -t MOCP        1 mocp
-screen -t IRSSI	      2 ssh xxtjaxx@ein-elch.de 
 
 # screen -t TORRENT     5 rtorrent
 # Set the environment variable var to value string. If only var is specified,

@@ -224,7 +224,12 @@ function mailqcount () {
 }
 
 function countoccurence {
-    sort |  awk '{count[$1]++}END{for(j in count) printf count[j] "\t" j" \n"}' | sort -g
+    if [ ! -z "$1" ]; then
+        echo "Pass in List of items, will be counted by re-occurence"
+        return;
+    else
+        sort |  awk '{count[$1]++}END{for(j in count) printf count[j] "\t" j" \n"}' | sort -g
+    fi
 }
 
 ### __COMMENTS__
