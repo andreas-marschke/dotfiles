@@ -1,0 +1,25 @@
+// Force gradle to use a custom logger
+
+// useLogger(new CustomEventLogger())
+
+// class CustomEventLogger extends BuildAdapter implements TaskExecutionListener {
+  
+//   public void beforeExecute(Task task) {
+//     println ":$task.project.name:$task.name: Starts"
+//   }
+  
+//   public void afterExecute(Task task, TaskState state) {
+//     println ":$task.project.name:$task.name: Finished"
+//   }
+  
+//   public void buildFinished(BuildResult result) {
+    
+//     if (result.failure != null) {
+//       println "BUILD FINISHED WITH ERRORS:"
+//       result.failure.printStackTrace()
+//     }
+//     else {
+//       println 'BUILD FINISHED';
+//     }
+//   }
+// }

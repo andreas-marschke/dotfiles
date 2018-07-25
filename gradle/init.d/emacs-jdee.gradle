@@ -1,0 +1,16 @@
+// initscript {
+//   repositories {
+//     maven {
+//       url "https://plugins.gradle.org/m2/"
+//     }
+//     mavenLocal()
+//     jcenter()
+//   }
+//   dependencies {
+//     classpath "com.mattwhipple.gradle:gradle-emacs-jdee:0.1.0"
+//   }
+// }
+
+// rootProject {
+//   //apply plugin: 'com.mattwhipple.emacs-jdee'
+// }
