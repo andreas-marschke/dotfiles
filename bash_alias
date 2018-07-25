@@ -32,6 +32,23 @@ alias d_id3rename='id3rename -w -p "{track} - {title}" -d "/home/andreas/share/a
 alias td_id3rename='id3rename -t -w -p "{track} - {title}" -d "/home/andreas/share/audio/{artist}/{album}/{disk}"'
 alias server="python -mSimpleHTTPServer"
 
+function netstat_listening
+{
+    # `ps -hp 49445 -o command`
+    netstat -tnav -p tcp | perl -e 'while(<>) {
+    chomp();
+    if (m/(.*LISTEN.*|^Proto.*)/g) {
+        if (m/(tcp[46]{1,2})\s*(\d*)\s*(\d*)\s*([\w:*.]*)\s*([\w*.]*)\s*(LISTEN)\s*(\d*)\s*(\d*)\s*(\d*)\s*(\d*)/) {
+            @command_ps = `ps -hp $9 -o command`;
+            chomp($command_ps[1]);
+            print $_." ".$command_ps[1]."\n";
+        }
+        else { print $_."\n" };
+    }
+}'
+
+}
+
 function jqboomerref
 {
 	jq '.objects[] | .references[] | select(.type == "boomerang") | .name' -r
@@ -111,7 +128,8 @@ function toggle_vcs()
 alias svn_check='test -d .svn/ && echo "(rv$(svn info | grep "Revision"  | cut -d: -f2 | sed s/\ //g))"'
 
 # general development
-alias emacs="emacs-25.1 -nw -f server-start"
+export EMACS="/Users/amarschke/src/elisp/emacs/src/emacs"
+alias emacs="$EMACS -nw"
 alias m='make'
 
 # misc

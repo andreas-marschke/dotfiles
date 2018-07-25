@@ -25,3 +25,5 @@ sslverify = no
 	program = gpg
 [core]
 	excludesfile = /Users/amarschke/.gitignore_global
+[github]
+	user = andreas-marschke

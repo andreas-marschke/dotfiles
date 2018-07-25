@@ -1,3 +1,44 @@
+# Mac Stuff
+.DS_Store
+__MACOSX
+
+# Dev Stuff
+**/JavaDoc/**
+*xcuserdata*
+*.class
+package-lock.json
+
+# Temp Stuff
+notes.org
+*#*#
+**~
+
+# Emacs Stuff
+get-tags.sh
+todo.org
+.dir-locals.el
 TAGS
 taggable-files
 prj.el
+todo.org_archive
+
+# Work stuff
+**/TestObjects/futureSplitBalanced.txt
+**/TestObjects/futureSplitCombined.txt
+**/TestObjects/futureSplitStriped.txt
+*.dat.matches.dat
+*.dat.matches.uniq.dat
+*.dat.non-matches.dat
+*.dat.matches.dat
+*.dat.matches.uniq.dat
+*.dat.non-matches.dat
+build.properties
+
+# Dot Files
+config/browser-launcher2
+config/filezilla
+config/gtk-2.0
+config/inkscape
+config/FTPstats.yml
+cpan/
+ssh/*.config

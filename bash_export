@@ -5,6 +5,8 @@ export HISTSIZE=100000
 
 #export LD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/lib
 
+export PATH="/usr/local/bin/:$PATH"
+
 # local personal scripts 
 export PATH="$HOME/bin:$PATH"
 
@@ -81,3 +83,16 @@ export ANDROID_HOME="/usr/local/opt/android-sdk"
 export ANDROID_NDK_HOME="/usr/local/Cellar/android-ndk/r12b"
 
 export PATH="/usr/local/opt/texinfo/bin:$PATH"
+
+if [ -x /usr/libexec/path_helper ]; then
+    eval `/usr/libexec/path_helper -s`
+    defaults write $HOME/.MacOSX/environment.plist PATH "$JAVA_HOME"
+    defaults write $HOME/.MacOSX/environment.plist ANDROID_HOME "$ANDROID_HOME"
+    defaults write $HOME/.MacOSX/environment.plist ANDROID_NDK_HOME "$ANDROID_NDK_HOME"
+    defaults write $HOME/.MacOSX/environment.plist PERL5LIB "$PERL5LIB"
+    defaults write $HOME/.MacOSX/environment.plist JAVA_HOME "$JAVA_HOME"
+    defaults write $HOME/.MacOSX/environment.plist JAVA_JDK_HOME "$JAVA_JDK_HOME"
+    defaults write $HOME/.MacOSX/environment.plist MVN_HOME "$MVN_HOME"
+    defaults write $HOME/.MacOSX/environment.plist GRADLE_HOME "$GRADLE_HOME"
+    defaults write $HOME/.MacOSX/environment.plist EDITOR "$EDITOR"
+fi

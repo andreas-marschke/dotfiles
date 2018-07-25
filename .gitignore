@@ -62,3 +62,7 @@ config/Skype*
 config/totem*
 config/configstore/
 config/git-cola/
+gradle/caches
+gradle/daemon
+gradle/native
+gradle/wrapper
